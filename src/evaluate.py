@@ -21,16 +21,24 @@ from transforms import val_test_transform, IMAGENET_MEAN, IMAGENET_STD
 
 
 def load_model(checkpoint_path, device):
-    """Load model terbaik dari checkpoint."""
+    """Load model terbaik dari checkpoint. Mendukung frozen dan finetuned model."""
     checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
     num_classes = checkpoint['num_classes']
     classes = checkpoint['classes']
 
-    model = create_resnet18_model(num_classes=num_classes, freeze_backbone=True)
+    # Deteksi tipe model dari checkpoint
+    model_type = checkpoint.get('model_type', 'resnet18_frozen')
+    if model_type == 'resnet18_finetuned':
+        from model_finetune import create_resnet18_finetune
+        model = create_resnet18_finetune(num_classes=num_classes)
+    else:
+        model = create_resnet18_model(num_classes=num_classes, freeze_backbone=True)
+
     model.load_state_dict(checkpoint['model_state_dict'])
     model = model.to(device)
     model.eval()
 
+    print(f"Loaded model: {model_type}")
     return model, classes, checkpoint['class_to_idx']
 
 
@@ -174,7 +182,8 @@ def plot_misclassified(dataset, y_true, y_pred, y_probs, classes, output_path, n
 
 
 def main():
-    CHECKPOINT_PATH = "models/resnet18_frozen.pth"
+    # Terima checkpoint path dari CLI, atau default ke resnet18_frozen.pth
+    CHECKPOINT_PATH = sys.argv[1] if len(sys.argv) > 1 else "models/resnet18_frozen.pth"
     TEST_DIR = "data/test"
     OUTPUT_DIR = "notebooks"
 

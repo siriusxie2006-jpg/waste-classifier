@@ -24,3 +24,17 @@ val_test_transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD)
 ])
+
+# Transformasi Train V2 — augmentasi lebih agresif untuk fine-tuning
+# Dirancang untuk membantu model membedakan material reflektif (glass vs metal)
+# dan material transparan (plastic vs glass) dengan variasi warna/kontras lebih tinggi
+train_transform_v2 = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.RandomHorizontalFlip(p=0.5),
+    transforms.RandomRotation(degrees=20),                     # Rotasi lebih besar
+    transforms.ColorJitter(brightness=0.4, contrast=0.4,       # Variasi warna lebih tinggi
+                           saturation=0.4, hue=0.15),
+    transforms.RandomAutocontrast(p=0.3),                      # Bantu bedakan refleksi vs matte
+    transforms.ToTensor(),
+    transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD)
+])
