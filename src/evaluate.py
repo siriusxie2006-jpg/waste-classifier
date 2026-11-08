@@ -137,6 +137,10 @@ def plot_misclassified(dataset, y_true, y_pred, y_probs, classes, output_path, n
     # Cari indeks gambar yang salah prediksi
     wrong_indices = np.where(y_true != y_pred)[0]
 
+    if len(wrong_indices) == 0:
+        print("Tidak ada gambar yang salah diprediksi; visualisasi dilewati.")
+        return
+
     if len(wrong_indices) < n:
         n = len(wrong_indices)
         print(f"Hanya {n} gambar yang salah diprediksi, menampilkan semua.")

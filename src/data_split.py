@@ -1,14 +1,27 @@
 import os
+import csv
 import shutil
 from sklearn.model_selection import train_test_split
 from collections import Counter
 
-def split_dataset(raw_dir, train_dir, val_dir, test_dir, test_size=0.15, val_size=0.15, random_state=42):
+def split_dataset(raw_dir, train_dir, val_dir, test_dir, test_size=0.15, val_size=0.15,
+                  random_state=42, manifest_path="data/split_manifest.csv"):
     """
     Split dataset dari raw_dir ke train, val, dan test directory
     dengan proporsi stratified per kelas.
     """
     print("Memulai proses split dataset...")
+
+    # Refuse to overwrite an existing split or manifest. The caller must
+    # explicitly move/remove prior outputs before creating a new split.
+    existing_paths = [path for path in (train_dir, val_dir, test_dir, manifest_path)
+                      if os.path.exists(path)]
+    if existing_paths:
+        raise FileExistsError(
+            "Pembagian dihentikan karena output sudah ada: "
+            + ", ".join(existing_paths)
+            + ". Pindahkan atau hapus output tersebut secara manual jika memang ingin membuat split baru."
+        )
     
     # Kumpulkan semua file gambar per kelas
     if not os.path.exists(raw_dir):
@@ -23,7 +36,10 @@ def split_dataset(raw_dir, train_dir, val_dir, test_dir, test_size=0.15, val_siz
     for cls in classes:
         cls_dir = os.path.join(raw_dir, cls)
         # Ambil file gambar saja
-        files = [f for f in os.listdir(cls_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+        files = sorted(
+            f for f in os.listdir(cls_dir)
+            if f.lower().endswith(('.png', '.jpg', '.jpeg'))
+        )
         for f in files:
             filepaths.append(os.path.join(cls_dir, f))
             labels.append(cls)
@@ -62,12 +78,10 @@ def split_dataset(raw_dir, train_dir, val_dir, test_dir, test_size=0.15, val_siz
     
     print("\n--- Ringkasan Split Dataset ---")
     
+    manifest_rows = []
     for split_name, (X, y, target_dir) in splits.items():
         print(f"\n{split_name} Set: {len(X)} gambar total")
-        
-        # Bersihkan direktori jika sudah ada, atau buat baru
-        if os.path.exists(target_dir):
-            shutil.rmtree(target_dir)
+
         os.makedirs(target_dir, exist_ok=True)
             
         # Hitung jumlah per kelas
@@ -83,8 +97,30 @@ def split_dataset(raw_dir, train_dir, val_dir, test_dir, test_size=0.15, val_siz
             filename = os.path.basename(src)
             dst = os.path.join(target_dir, cls, filename)
             shutil.copy2(src, dst)
+            manifest_rows.append({
+                "relative_path": os.path.relpath(src, raw_dir).replace(os.sep, "/"),
+                "class": cls,
+                "split": split_name.lower(),
+                "random_state": random_state,
+                "train_ratio": 1.0 - val_size - test_size,
+                "val_ratio": val_size,
+                "test_ratio": test_size,
+            })
+
+    # Write the manifest from entries whose file copies completed successfully.
+    # Exclusive creation prevents replacing a manifest created concurrently.
+    manifest_parent = os.path.dirname(manifest_path)
+    if manifest_parent:
+        os.makedirs(manifest_parent, exist_ok=True)
+    with open(manifest_path, "x", newline="", encoding="utf-8") as manifest_file:
+        writer = csv.DictWriter(manifest_file, fieldnames=[
+            "relative_path", "class", "split", "random_state",
+            "train_ratio", "val_ratio", "test_ratio"
+        ])
+        writer.writeheader()
+        writer.writerows(manifest_rows)
             
-    print("\nSplit dataset selesai!")
+    print(f"\nSplit dataset selesai! Manifest disimpan ke: {manifest_path}")
 
 if __name__ == "__main__":
     # Setup path relatif terhadap lokasi script dijalankan
@@ -96,5 +132,6 @@ if __name__ == "__main__":
         test_dir="data/test",
         test_size=0.15,
         val_size=0.15,
-        random_state=42
+        random_state=42,
+        manifest_path="data/split_manifest.csv"
     )

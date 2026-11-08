@@ -2,7 +2,9 @@ import os
 import sys
 import copy
 import time
+import random
 import torch
+import numpy as np
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
@@ -11,13 +13,40 @@ from torch.utils.data import DataLoader
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from dataset import WasteDataset
-from model_transfer import create_resnet18_model
+from model_transfer import (
+    assert_batchnorm_running_stats_unchanged,
+    assert_frozen_resnet18_parameters,
+    create_resnet18_model,
+    set_frozen_resnet18_mode,
+    snapshot_batchnorm_running_stats,
+)
 from transforms import train_transform, val_test_transform
+
+SEED = 42
+
+
+def seed_worker(worker_id):
+    """Seed Python and NumPy in each DataLoader worker from its PyTorch seed."""
+    worker_seed = torch.initial_seed() % (2 ** 32)
+    np.random.seed(worker_seed)
+    random.seed(worker_seed)
+
+
+def set_reproducibility(seed=SEED):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    if hasattr(torch.backends, "cudnn"):
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
 
 
 def train_one_epoch(model, dataloader, criterion, optimizer, device):
     """Jalankan satu epoch training, return (avg_loss, accuracy)."""
-    model.train()
+    set_frozen_resnet18_mode(model, training=True)
+    assert_frozen_resnet18_parameters(model)
+    batchnorm_stats_before = snapshot_batchnorm_running_stats(model)
     running_loss = 0.0
     correct = 0
     total = 0
@@ -38,6 +67,7 @@ def train_one_epoch(model, dataloader, criterion, optimizer, device):
 
     avg_loss = running_loss / total
     accuracy = correct / total
+    assert_batchnorm_running_stats_unchanged(model, batchnorm_stats_before)
     return avg_loss, accuracy
 
 
@@ -66,6 +96,9 @@ def validate(model, dataloader, criterion, device):
 
 
 def main():
+    set_reproducibility(SEED)
+    print(f"Random seed: {SEED}")
+
     # === Hyperparameter ===
     BATCH_SIZE = 32
     LEARNING_RATE = 0.001
@@ -90,8 +123,18 @@ def main():
     print(f"Val set:   {len(val_dataset)} gambar")
 
     # === DataLoader ===
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=0)
-    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
+    train_generator = torch.Generator()
+    train_generator.manual_seed(SEED)
+    val_generator = torch.Generator()
+    val_generator.manual_seed(SEED + 1)
+    train_loader = DataLoader(
+        train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=0,
+        worker_init_fn=seed_worker, generator=train_generator
+    )
+    val_loader = DataLoader(
+        val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=0,
+        worker_init_fn=seed_worker, generator=val_generator
+    )
 
     # === Model: ResNet18 dengan backbone frozen ===
     num_classes = len(train_dataset.classes)
@@ -99,7 +142,11 @@ def main():
     model = model.to(device)
 
     # Hanya parameter yang requires_grad=True yang akan di-optimize (fc layer saja)
+    assert_frozen_resnet18_parameters(model)
     trainable_params = [p for p in model.parameters() if p.requires_grad]
+    head_params = list(model.fc.parameters())
+    if {id(param) for param in trainable_params} != {id(param) for param in head_params}:
+        raise RuntimeError("Only classification head parameters may be optimized.")
     total_params = sum(p.numel() for p in model.parameters())
     trainable_count = sum(p.numel() for p in trainable_params)
     frozen_count = total_params - trainable_count
@@ -107,6 +154,10 @@ def main():
 
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(trainable_params, lr=LEARNING_RATE)
+    optimizer_params = [param for group in optimizer.param_groups for param in group["params"]]
+    if {id(param) for param in optimizer_params} != {id(param) for param in head_params}:
+        raise RuntimeError("Optimizer must contain classification head parameters only.")
+    print("Frozen check: backbone parameters frozen; optimizer contains classification head only.")
 
     # === Training Loop dengan Best Model Tracking ===
     best_val_acc = 0.0
