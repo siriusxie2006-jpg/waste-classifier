@@ -1,0 +1,52 @@
+{
+  "selection": "Highest clean validation macro-F1 among the three matched ResNet18 controls. Pair the same seed.",
+  "validation_study_sha256": "ee841950a832044863d12ac0acf614e50545b2da6d3ecf7b536f008a91d97320",
+  "split_manifest_sha256": "dcb36e7e183a698c837aa682635ecc606d1a7c1ab360a776b1784e8226e2bf07",
+  "demo_source_sha256": {
+    "demo_app.py": "ce9a9be7a6d76f418087c638951ff3bc751d1a0250c6209ecdc0fd9033630b76",
+    "demo_labels.py": "f5425615470abad90554cd36af323ac78c5dec659b45f2c9a462a600d10cb243",
+    "inference.py": "8ce031111cb74a7fb5163ec9da3365afc798fc438459a976ab0d64d5896ed2f9"
+  },
+  "score_check": "Top classes reproduced exactly. Compare CPU single-image score to archived batched score descriptively.",
+  "rows": [
+    {
+      "role": "default_baseline",
+      "run_name": "multiscale_confirm_control_seed43",
+      "seed": 43,
+      "checkpoint_sha256": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b",
+      "matching_validation_predictions": 375,
+      "max_validation_top_score_difference": 0.0028325915336608887,
+      "max_difference_path": "data/source/dataset-resized/glass/glass293.jpg",
+      "validation_accuracy": 0.9333333333333333,
+      "validation_macro_f1": 0.9257362400218282,
+      "known_bottle": {
+        "prediction": "plastic",
+        "score": 0.43772265315055847,
+        "needs_review": true
+      }
+    },
+    {
+      "role": "geometry_comparison",
+      "run_name": "coverage_control_seed43",
+      "seed": 43,
+      "checkpoint_sha256": "10aeab4ca56f42d53a93113efaa2a7b4d53af30e870b774ddf18dd38d2fb77c4",
+      "matching_validation_predictions": 375,
+      "max_validation_top_score_difference": 0.0014821290969848633,
+      "max_difference_path": "data/source/dataset-resized/paper/paper583.jpg",
+      "validation_accuracy": 0.9253333333333333,
+      "validation_macro_f1": 0.9184436820726916,
+      "known_bottle": {
+        "prediction": "plastic",
+        "score": 0.882078230381012,
+        "needs_review": false
+      }
+    }
+  ],
+  "holdout_images_evaluated": false,
+  "feedback_photo_used_for_selection": false,
+  "app_checks": {
+    "current_pair": true,
+    "comparison_from_both_models": true,
+    "center_only_archive": true
+  }
+}

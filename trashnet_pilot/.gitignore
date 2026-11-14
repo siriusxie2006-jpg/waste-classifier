@@ -1,0 +1,13 @@
+/cache/
+/data/downloads/
+/data/source/
+/data/external_realwaste/images/
+/data/bottle_material/*.png
+/data/bottle_material/*.jpg
+/outputs/**/*.pt
+/outputs/**/*.pth
+/outputs/**/*.onnx
+/outputs/**/*.safetensors
+/outputs/user_photo_diagnostics/
+/outputs/similarity_candidates.png
+/outputs/training_samples.png

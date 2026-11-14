@@ -1,0 +1,6 @@
+{
+  "validation_accuracy": 0.9306666666666666,
+  "validation_macro_f1": 0.9267063190846526,
+  "note": "375 TrashNet validation images. Material adaptation used only the TACO development groups.",
+  "original_trashnet_test_evaluated": false
+}

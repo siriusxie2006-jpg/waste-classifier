@@ -1,0 +1,403 @@
+{
+  "source_images": 2527,
+  "total_images": 2521,
+  "classes": [
+    "cardboard",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "trash"
+  ],
+  "counts": {
+    "train": {
+      "cardboard": 280,
+      "glass": 345,
+      "metal": 292,
+      "paper": 413,
+      "plastic": 340,
+      "trash": 96
+    },
+    "val": {
+      "cardboard": 65,
+      "glass": 75,
+      "metal": 54,
+      "paper": 91,
+      "plastic": 68,
+      "trash": 22
+    },
+    "test": {
+      "cardboard": 58,
+      "glass": 78,
+      "metal": 63,
+      "paper": 90,
+      "plastic": 72,
+      "trash": 19
+    }
+  },
+  "excluded_conflicting_labels": [
+    {
+      "path": "data/source/dataset-resized/glass/glass115.jpg",
+      "class_name": "glass",
+      "label": 1,
+      "width": 512,
+      "height": 384,
+      "pixel_sha256": "2817d98c744ad8c852df75949d41095d8ab8a64420d074b1d56d6a112ed2c2b1"
+    },
+    {
+      "path": "data/source/dataset-resized/glass/glass176.jpg",
+      "class_name": "glass",
+      "label": 1,
+      "width": 512,
+      "height": 384,
+      "pixel_sha256": "4ebdea69bac7f2017f2727da9ed7e385ffc453a2e141b8ae0c33655e0e7bdd81"
+    },
+    {
+      "path": "data/source/dataset-resized/glass/glass389.jpg",
+      "class_name": "glass",
+      "label": 1,
+      "width": 512,
+      "height": 384,
+      "pixel_sha256": "f8b80e30c08aa72a497451dedfea3fdb523c763e17b07952458af23dd5e30b07"
+    },
+    {
+      "path": "data/source/dataset-resized/metal/metal91.jpg",
+      "class_name": "metal",
+      "label": 2,
+      "width": 512,
+      "height": 384,
+      "pixel_sha256": "2817d98c744ad8c852df75949d41095d8ab8a64420d074b1d56d6a112ed2c2b1"
+    },
+    {
+      "path": "data/source/dataset-resized/plastic/plastic152.jpg",
+      "class_name": "plastic",
+      "label": 4,
+      "width": 512,
+      "height": 384,
+      "pixel_sha256": "4ebdea69bac7f2017f2727da9ed7e385ffc453a2e141b8ae0c33655e0e7bdd81"
+    },
+    {
+      "path": "data/source/dataset-resized/plastic/plastic332.jpg",
+      "class_name": "plastic",
+      "label": 4,
+      "width": 512,
+      "height": 384,
+      "pixel_sha256": "f8b80e30c08aa72a497451dedfea3fdb523c763e17b07952458af23dd5e30b07"
+    }
+  ],
+  "exclusion_rule": "Exclude all copies of identical RGB pixels assigned different class labels; no subjective relabeling.",
+  "archive_url": "https://raw.githubusercontent.com/garythung/trashnet/master/data/dataset-resized.zip",
+  "archive_sha256": "0bf472790f8b20e5c950d5b5012a9d38af0d3392efd65f8ce171334fc16b07c2",
+  "split_seed": 42,
+  "selected_balance_seed": 55,
+  "exact_duplicate_pairs": 0,
+  "perceptual_candidate_pairs": 43,
+  "group_count": 2478,
+  "largest_group": 4,
+  "grouping_rule": "After excluding pixel-identical label conflicts, union connected components with identical RGB pixels or 63-bit pHash distance <=6, including cross-label candidates; no further images removed.",
+  "limitation": "Conservative similarity grouping reduces leakage but cannot establish physical-object identity or guarantee all near duplicates are found.",
+  "candidate_pairs": [
+    {
+      "a": "data/source/dataset-resized/cardboard/cardboard15.jpg",
+      "b": "data/source/dataset-resized/cardboard/cardboard361.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/cardboard/cardboard386.jpg",
+      "b": "data/source/dataset-resized/cardboard/cardboard72.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal165.jpg",
+      "b": "data/source/dataset-resized/metal/metal166.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal11.jpg",
+      "b": "data/source/dataset-resized/metal/metal221.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal120.jpg",
+      "b": "data/source/dataset-resized/metal/metal50.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal122.jpg",
+      "b": "data/source/dataset-resized/metal/metal57.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal155.jpg",
+      "b": "data/source/dataset-resized/metal/metal6.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal394.jpg",
+      "b": "data/source/dataset-resized/metal/metal76.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal149.jpg",
+      "b": "data/source/dataset-resized/metal/metal9.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper101.jpg",
+      "b": "data/source/dataset-resized/paper/paper108.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper136.jpg",
+      "b": "data/source/dataset-resized/paper/paper148.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper180.jpg",
+      "b": "data/source/dataset-resized/paper/paper284.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper240.jpg",
+      "b": "data/source/dataset-resized/paper/paper306.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper305.jpg",
+      "b": "data/source/dataset-resized/paper/paper308.jpg",
+      "same_class": true,
+      "phash_distance": 0,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper246.jpg",
+      "b": "data/source/dataset-resized/paper/paper349.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper185.jpg",
+      "b": "data/source/dataset-resized/paper/paper390.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper152.jpg",
+      "b": "data/source/dataset-resized/paper/paper392.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper2.jpg",
+      "b": "data/source/dataset-resized/paper/paper40.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper265.jpg",
+      "b": "data/source/dataset-resized/paper/paper408.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper345.jpg",
+      "b": "data/source/dataset-resized/paper/paper451.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper459.jpg",
+      "b": "data/source/dataset-resized/paper/paper466.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper39.jpg",
+      "b": "data/source/dataset-resized/paper/paper467.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "val"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper135.jpg",
+      "b": "data/source/dataset-resized/paper/paper496.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "val"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper314.jpg",
+      "b": "data/source/dataset-resized/paper/paper53.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper522.jpg",
+      "b": "data/source/dataset-resized/paper/paper534.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper123.jpg",
+      "b": "data/source/dataset-resized/paper/paper547.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper176.jpg",
+      "b": "data/source/dataset-resized/paper/paper549.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper457.jpg",
+      "b": "data/source/dataset-resized/paper/paper553.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper540.jpg",
+      "b": "data/source/dataset-resized/paper/paper56.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper68.jpg",
+      "b": "data/source/dataset-resized/paper/paper74.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper474.jpg",
+      "b": "data/source/dataset-resized/paper/paper89.jpg",
+      "same_class": true,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/paper/paper147.jpg",
+      "b": "data/source/dataset-resized/paper/paper99.jpg",
+      "same_class": true,
+      "phash_distance": 2,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal154.jpg",
+      "b": "data/source/dataset-resized/plastic/plastic10.jpg",
+      "same_class": false,
+      "phash_distance": 4,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/glass/glass127.jpg",
+      "b": "data/source/dataset-resized/plastic/plastic11.jpg",
+      "same_class": false,
+      "phash_distance": 6,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal159.jpg",
+      "b": "data/source/dataset-resized/plastic/plastic11.jpg",
+      "same_class": false,
+      "phash_distance": 2,
+      "split": "test"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal149.jpg",
+      "b": "data/source/dataset-resized/plastic/plastic135.jpg",
+      "same_class": false,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/plastic/plastic135.jpg",
+      "b": "data/source/dataset-resized/plastic/plastic138.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/plastic/plastic105.jpg",
+      "b": "data/source/dataset-resized/plastic/plastic350.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/plastic/plastic293.jpg",
+      "b": "data/source/dataset-resized/plastic/plastic384.jpg",
+      "same_class": true,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/plastic/plastic131.jpg",
+      "b": "data/source/dataset-resized/trash/trash127.jpg",
+      "same_class": false,
+      "phash_distance": 6,
+      "split": "val"
+    },
+    {
+      "a": "data/source/dataset-resized/metal/metal178.jpg",
+      "b": "data/source/dataset-resized/trash/trash128.jpg",
+      "same_class": false,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/plastic/plastic178.jpg",
+      "b": "data/source/dataset-resized/trash/trash128.jpg",
+      "same_class": false,
+      "phash_distance": 6,
+      "split": "train"
+    },
+    {
+      "a": "data/source/dataset-resized/plastic/plastic481.jpg",
+      "b": "data/source/dataset-resized/trash/trash133.jpg",
+      "same_class": false,
+      "phash_distance": 6,
+      "split": "train"
+    }
+  ],
+  "preparation_seconds": 8.343468799999755
+}

@@ -1,0 +1,12 @@
+{
+  "candidate": "bottle_6_25",
+  "seed": 43,
+  "paired_original": "multiscale_confirm_control_seed43",
+  "release_requires": {
+    "three_seed_holdout_confirmation": true,
+    "max_seed43_trashnet_validation_macro_f1_loss": 0.01,
+    "min_seed43_holdout_balanced_recall_gain": 0.02,
+    "min_seed43_holdout_recall_change_for_each_of_glass_and_plastic": 0.0
+  },
+  "deployment": "If all checks pass, make the existing seed's adapted weight the default single-item baseline. Keep the paired original in the demo and use it for same-image comparison with the adapted weight."
+}

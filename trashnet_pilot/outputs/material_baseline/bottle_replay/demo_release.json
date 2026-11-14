@@ -1,0 +1,80 @@
+{
+  "planned_demo_policy_sha256": "d60c0ca12839e141ec2efa1799e1f2cf270d3d9e2ec71329108bdf82c05b7309",
+  "selection_sha256": "12cea04f039428008c9ef77ca60a9dc81f226ac6db23ee0e19217711992cf5bf",
+  "holdout_sha256": "3d1aac310c51405b1c31628fb3a441630cafc7b805f4765f832bda07b69d12ed",
+  "passed_planned_metrics": true,
+  "demo_default": "multiscale_confirm_control_seed43",
+  "optional_demo_run": "bottle_6_25_seed43",
+  "checkpoint_sha256": "c02dcadd7dcc81f0be5553ca67944cb31c46899d3c3b35a64983f477404693c3",
+  "policy_override": "Retain the general default because seed43 metal recall fell by 5 of 54; glass-to-plastic errors also increased in held-out bottles.",
+  "seed43_validation_metal_recall_change": -0.09259259259259267,
+  "checks": {
+    "validation": {
+      "count": 375,
+      "label_matches": 375,
+      "differing_paths": [],
+      "max_probability_difference": 0.002371549606323242
+    },
+    "holdout": {
+      "count": 28,
+      "label_matches": 28,
+      "differing_paths": [],
+      "max_probability_difference": 0.0017067790031433105
+    }
+  },
+  "known_photo": {
+    "image_sha256": "47f077c9d383bab7e820f9084bde7eebea6e8eaebe6d431b181424db65288c0f",
+    "purpose": "Post-selection illustration only",
+    "scores": {
+      "original": {
+        "probabilities": {
+          "cardboard": 0.18387126922607422,
+          "glass": 0.36978599429130554,
+          "metal": 0.0031768770422786474,
+          "paper": 0.0053029232658445835,
+          "plastic": 0.43772265315055847,
+          "trash": 0.00014028820442035794
+        },
+        "needs_review": true,
+        "reasons": [
+          "第一候选得分较低。",
+          "前两个候选得分接近。"
+        ],
+        "predicted_class": "plastic",
+        "top_score": 0.43772265315055847,
+        "margin": 0.06793665885925293,
+        "ranking": [
+          4,
+          1,
+          0,
+          3,
+          2,
+          5
+        ]
+      },
+      "bottle_6_25": {
+        "probabilities": {
+          "cardboard": 0.0013399689923971891,
+          "glass": 0.13179828226566315,
+          "metal": 5.5941458413144574e-05,
+          "paper": 8.696087752468884e-05,
+          "plastic": 0.8667169213294983,
+          "trash": 2.0083889467059635e-06
+        },
+        "needs_review": false,
+        "reasons": [],
+        "predicted_class": "plastic",
+        "top_score": 0.8667169213294983,
+        "margin": 0.7349186390638351,
+        "ranking": [
+          4,
+          1,
+          0,
+          3,
+          2,
+          5
+        ]
+      }
+    }
+  }
+}

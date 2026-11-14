@@ -1,0 +1,105 @@
+{
+  "files": {
+    "data/split_manifest.csv": "dcb36e7e183a698c837aa682635ecc606d1a7c1ab360a776b1784e8226e2bf07",
+    "data/bottle_material/manifest.csv": "a755bfd53a4e7f2b0b7caded80d0e7260590a346ad7d6ae19aa7b9f4de4c4137",
+    "data/bottle_material/provenance.json": "0699069111eeed4e033813ab28cdeda796673c78ae1477703483f865f8cb112c",
+    "outputs/training_coverage/validation_results.json": "ee841950a832044863d12ac0acf614e50545b2da6d3ecf7b536f008a91d97320",
+    "data/external_realwaste/manifest.csv": "bbcea71303175173338a1058408635f05707d7b33cfdf84ff080d7efbf6c271b",
+    "outputs/domain_input_diagnosis/preparation.json": "a1c003fcc7efcd6110f3dc6735aff0ee59eaed1caedbe85ac43c71f8708fa9f0",
+    "inference.py": "8ce031111cb74a7fb5163ec9da3365afc798fc438459a976ab0d64d5896ed2f9",
+    "model_utils.py": "fd0e01cca68a7474d817b9936b185fddd2ba97556e12cca7429c8373d4419529",
+    "train_baseline.py": "09b652812eb5ab86d2c762d345b11d8cfd8e94d83d913e173b33a380cafd9fb9",
+    "image_framing.py": "66e4fe0ef5bbcaab957c4b84a87a747dd94c6a3fcc444f1cc3b4503aa1fa6934",
+    "prepare_bottle_material.py": "7d1a499f2dfc265e9081cd49e746fa848fe225a89aabd453fdf8e3d2ce467715",
+    "run_material_baseline.py": "ea6b47e694f057488fedfa5ec28673676ae2b0b385ace03940ef67f57db10a69",
+    "outputs\\domain_input_diagnosis\\realwaste_inputs.csv": "7da82d453a730c8d89656b6fb2e826eae3454629ba7134af93c825079525142e",
+    "cache\\domain_input_diagnosis\\realwaste.npy": "ff7cce06b434a69f3725fdbd8b3136ddd0e327b731d30f876469edaca573f436",
+    "outputs/multiscale_pilot_control_seed42/best_model.pt": "0ba4dfaa117fa91af9b60dc976b72b53a4b1e88726cb923fc46eab859e6af933",
+    "outputs/multiscale_pilot_control_seed42/val_predictions.csv": "e109ef4c233b9f96621c8c8252ae5e7c068a33c92734f1f90d1a395a604ce0d0",
+    "outputs/multiscale_confirm_control_seed43/best_model.pt": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b",
+    "outputs/multiscale_confirm_control_seed43/val_predictions.csv": "0a328ba416397fb683aacc19d4d249f3d23382911233b5b2c953c77b6435f56c",
+    "outputs/multiscale_confirm_control_seed44/best_model.pt": "d94cdf9a56ac796d72af1c3b704b3ebf9aea99aeb19d06a3678a27ccb0131653",
+    "outputs/multiscale_confirm_control_seed44/val_predictions.csv": "08f63de69ec0904fcad6998f015ca0748099e147e3aa2f8852e932fb5ebfe0e2"
+  },
+  "bases": [
+    {
+      "recipe": "control",
+      "seed": 42,
+      "coverage": "original",
+      "run_name": "multiscale_pilot_control_seed42",
+      "checkpoint_sha256": "0ba4dfaa117fa91af9b60dc976b72b53a4b1e88726cb923fc46eab859e6af933",
+      "clean_accuracy": 0.9146666666666666,
+      "clean_f1": 0.9074924088346711,
+      "best_epoch": 7,
+      "geometry_f1": 0.8180408083447339,
+      "robustness_f1": 0.800720759771276,
+      "plastic_recall": 0.8823529411764706
+    },
+    {
+      "recipe": "control",
+      "seed": 43,
+      "coverage": "original",
+      "run_name": "multiscale_confirm_control_seed43",
+      "checkpoint_sha256": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b",
+      "clean_accuracy": 0.9333333333333333,
+      "clean_f1": 0.9257362400218282,
+      "best_epoch": 9,
+      "geometry_f1": 0.8301035169981879,
+      "robustness_f1": 0.8239287341388932,
+      "plastic_recall": 0.9117647058823529
+    },
+    {
+      "recipe": "control",
+      "seed": 44,
+      "coverage": "original",
+      "run_name": "multiscale_confirm_control_seed44",
+      "checkpoint_sha256": "d94cdf9a56ac796d72af1c3b704b3ebf9aea99aeb19d06a3678a27ccb0131653",
+      "clean_accuracy": 0.912,
+      "clean_f1": 0.8997178556539982,
+      "best_epoch": 9,
+      "geometry_f1": 0.8109132397616775,
+      "robustness_f1": 0.8076782948216095,
+      "plastic_recall": 0.8970588235294118
+    }
+  ],
+  "classes": [
+    "cardboard",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "trash"
+  ],
+  "realwaste_cache": {
+    "count": 3092,
+    "frames": "cache\\domain_input_diagnosis\\realwaste.npy",
+    "frames_sha256": "ff7cce06b434a69f3725fdbd8b3136ddd0e327b731d30f876469edaca573f436",
+    "manifest": "outputs\\domain_input_diagnosis\\realwaste_inputs.csv",
+    "manifest_sha256": "7da82d453a730c8d89656b6fb2e826eae3454629ba7134af93c825079525142e"
+  },
+  "recipe_realwaste_samples_per_batch": {
+    "in_domain": 0,
+    "mixed_12_5": 16,
+    "mixed_25": 32
+  },
+  "steps": 120,
+  "batch": 128,
+  "lr": 0.0005,
+  "weight_decay": 0.0001,
+  "distillation_weight": 0.5,
+  "shared_batch_description": "First 96 clean TrashNet train features shared per step. Same step count, inverse class weights and original-logit penalty in all adaptations.",
+  "development": "TACO bottle development, evaluated through all six outputs",
+  "validation": "Clean TrashNet validation (375). Historical TrashNet test is excluded.",
+  "selection": {
+    "min_development_gain": 0.02,
+    "min_gain_over_in_domain": 0.01,
+    "max_validation_f1_loss": 0.01,
+    "positive_seeds": 2,
+    "tie_break": "Highest mean development balanced recall; ties prefer fewer external samples"
+  },
+  "holdout": {
+    "min_balanced_recall_gain": 0.02,
+    "positive_seeds": 2,
+    "checks": "Mean recall for each observed label must be at least as high as original. Same recipes and checkpoints for all rows. No reselection."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "best_epoch": 9,
+  "validation_accuracy": 0.9333333333333333,
+  "validation_macro_f1": 0.9257362400218282,
+  "total_training_validation_seconds": 93.93148509999992,
+  "epochs_completed": 10,
+  "mean_epoch_seconds": 9.316547110000101,
+  "peak_gpu_allocated_mb": 451.76611328125,
+  "test_evaluated": false,
+  "note": "Pilot validation results used for model selection, not an unbiased final test estimate."
+}

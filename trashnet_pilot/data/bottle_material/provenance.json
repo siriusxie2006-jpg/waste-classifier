@@ -1,0 +1,225 @@
+{
+  "annotation_source": "https://raw.githubusercontent.com/pedropro/TACO/70479ad9adc3da971a8ae75ac97eb1026910eec7/data/annotations.json",
+  "annotation_sha256": "812c2e3f0d336b437f276597715de2abb08bb8a641599c45f593d233ec66457b",
+  "original_link_revision": "6401db9ddd29af3d923304e3c09785707ed0174c",
+  "original_link_metadata_sha256": "ac1ec605c9e1fcda767970de3457c69b4a43b62c02aca8c4c80f51d1b5ae8449",
+  "manifest_sha256": "a755bfd53a4e7f2b0b7caded80d0e7260590a346ad7d6ae19aa7b9f4de4c4137",
+  "holdout_source_batches": [
+    "batch_11",
+    "batch_14",
+    "batch_2",
+    "batch_8"
+  ],
+  "counts": {
+    "development": {
+      "glass": 17,
+      "plastic": 62
+    },
+    "holdout": {
+      "glass": 8,
+      "plastic": 20
+    }
+  },
+  "crop": "One annotated bottle per image. Box padded 10% on each side.",
+  "duplicate_rule": "Remove both sides of cross-fold exact source matches and pHash distance <=4 on source or crop.",
+  "excluded_cross_fold_ids": [],
+  "unavailable_or_invalid": [
+    {
+      "image_id": 122,
+      "split": "development",
+      "class_name": "glass",
+      "source_url": "https://farm66.staticflickr.com/65535/48694320812_6e50cec0b3_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 115,
+      "split": "development",
+      "class_name": "glass",
+      "source_url": "https://farm66.staticflickr.com/65535/48694149021_50d7208802_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1451,
+      "split": "development",
+      "class_name": "glass",
+      "source_url": "https://farm66.staticflickr.com/65535/48660791883_5492dfedfa_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1476,
+      "split": "development",
+      "class_name": "glass",
+      "source_url": "https://farm66.staticflickr.com/65535/48701343067_848159546a_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1499,
+      "split": "development",
+      "class_name": "glass",
+      "source_url": "https://farm66.staticflickr.com/65535/48701147541_801c1a9f15_z.jpg",
+      "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)>"
+    },
+    {
+      "image_id": 1181,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/32912148117_b8991ed785_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1063,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/47856199371_7c8435960f_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1097,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/32912098647_ea249bbee4_z.jpg",
+      "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)>"
+    },
+    {
+      "image_id": 789,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/47803587912_3edc52e913_z.jpg",
+      "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)>"
+    },
+    {
+      "image_id": 1249,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/47066865824_5e78d8f1ff_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1123,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/32912110127_1f8c06e338_z.jpg",
+      "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)>"
+    },
+    {
+      "image_id": 974,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/32912019897_1c581d2a05_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1470,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48701346187_2e01fb5a55_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1492,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48701320322_4a7a9593c5_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 124,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48693805828_1a4306647f_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 113,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48693809453_86773988ce_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1479,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48700818638_056789fff1_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1187,
+      "split": "development",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/32912149767_e32e11c0a4_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1320,
+      "split": "holdout",
+      "class_name": "glass",
+      "source_url": "https://farm66.staticflickr.com/65535/48603595451_cb331aafda_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1353,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48580353981_0c61b14c1e_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 701,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/33978361098_904feda325_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1377,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48421596162_797197bf7c_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1314,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48359667181_da27b5109b_z.jpg",
+      "reason": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)>"
+    },
+    {
+      "image_id": 729,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/46939437955_ef1c0e9e30_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 724,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/46939435375_4656408631_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1345,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48580359636_cb37ddf46e_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 700,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/32911559587_57d4881800_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    },
+    {
+      "image_id": 1316,
+      "split": "holdout",
+      "class_name": "plastic",
+      "source_url": "https://farm66.staticflickr.com/65535/48359071261_132bc6ff34_z.jpg",
+      "reason": "Annotated bottle is smaller than 24 pixels"
+    }
+  ],
+  "grouping_limit": "Source batches and image similarity are available. Physical item identity is unknown."
+}

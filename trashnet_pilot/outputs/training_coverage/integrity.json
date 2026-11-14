@@ -1,0 +1,13 @@
+{
+  "training_runs": 6,
+  "epochs_per_run": 10,
+  "validation_weights": 12,
+  "conditions_per_weight": 14,
+  "reference_training_artifacts": 72,
+  "earlier_external_outputs_verified": true,
+  "earlier_diagnosis_outputs_verified": true,
+  "final_test_used": false,
+  "validation_result_sha256": "ee841950a832044863d12ac0acf614e50545b2da6d3ecf7b536f008a91d97320",
+  "development_result_sha256": "1953a3bfd313c0cdeff8f0e74d1ba64490f5f7be33bfd2d533a731022de4ff51",
+  "report_sha256": "83eccddddfb73f9e0811105a3c536d434deb8b0b865adaddfb565ff449830a3e"
+}

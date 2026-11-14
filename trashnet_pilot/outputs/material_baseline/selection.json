@@ -1,0 +1,71 @@
+{
+  "plan_sha256": "98b84c0811e7575e2358979492e1f8842c5f58a8c6553f95c8cfd696e7099e6f",
+  "development_sha256": "36cac62076091eabdec85a13c44dd5dab73b6b031eea3d2617b5646d306ac1aa",
+  "candidate": null,
+  "decisions": {
+    "original": {
+      "accepted_for_holdout": false,
+      "bottle_dev_change": 0.0,
+      "bottle_dev_change_by_seed": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bottle_dev_change_over_in_domain": -0.0018975332068311146,
+      "trashnet_val_f1_change": 0.0
+    },
+    "in_domain": {
+      "accepted_for_holdout": false,
+      "bottle_dev_change": 0.0018975332068311146,
+      "bottle_dev_change_by_seed": [
+        0.04838709677419356,
+        0.008064516129032251,
+        -0.05075901328273247
+      ],
+      "bottle_dev_change_over_in_domain": 0.0,
+      "trashnet_val_f1_change": 0.006693787421731952
+    },
+    "mixed_12_5": {
+      "accepted_for_holdout": false,
+      "bottle_dev_change": 0.007273877292852633,
+      "bottle_dev_change_by_seed": [
+        0.05645161290322581,
+        0.024193548387096808,
+        -0.05882352941176472
+      ],
+      "bottle_dev_change_over_in_domain": 0.005376344086021519,
+      "trashnet_val_f1_change": -0.01732492045545786
+    },
+    "mixed_25": {
+      "accepted_for_holdout": false,
+      "bottle_dev_change": 0.007273877292852633,
+      "bottle_dev_change_by_seed": [
+        0.06451612903225806,
+        0.016129032258064557,
+        -0.05882352941176472
+      ],
+      "bottle_dev_change_over_in_domain": 0.005376344086021519,
+      "trashnet_val_f1_change": -0.024272062332318673
+    }
+  },
+  "weights": [
+    {
+      "seed": 42,
+      "recipe": "original",
+      "path": "outputs/multiscale_pilot_control_seed42/best_model.pt",
+      "sha256": "0ba4dfaa117fa91af9b60dc976b72b53a4b1e88726cb923fc46eab859e6af933"
+    },
+    {
+      "seed": 43,
+      "recipe": "original",
+      "path": "outputs/multiscale_confirm_control_seed43/best_model.pt",
+      "sha256": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b"
+    },
+    {
+      "seed": 44,
+      "recipe": "original",
+      "path": "outputs/multiscale_confirm_control_seed44/best_model.pt",
+      "sha256": "d94cdf9a56ac796d72af1c3b704b3ebf9aea99aeb19d06a3678a27ccb0131653"
+    }
+  ]
+}

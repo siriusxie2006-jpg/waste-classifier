@@ -1,0 +1,41 @@
+{
+  "files": {
+    "outputs/material_baseline/plan.json": "98b84c0811e7575e2358979492e1f8842c5f58a8c6553f95c8cfd696e7099e6f",
+    "outputs/material_baseline/selection.json": "5e29c25cf5db80e6232ba5b4cebf2bc47e420b318651925b16c3a038a6d9c19c",
+    "outputs/material_baseline/development.json": "36cac62076091eabdec85a13c44dd5dab73b6b031eea3d2617b5646d306ac1aa",
+    "run_bottle_replay.py": "ac71067c229f879acf7e7c3568333eb2761e617b6a68f8872c6313fefb57285f"
+  },
+  "groups": [
+    [
+      "batch_1",
+      "batch_4"
+    ],
+    [
+      "batch_3",
+      "batch_6",
+      "batch_10"
+    ],
+    [
+      "batch_5",
+      "batch_7",
+      "batch_9"
+    ]
+  ],
+  "recipe_bottles_per_batch": {
+    "bottle_3_125": 4,
+    "bottle_6_25": 8
+  },
+  "protocol": "Same optimizer, 120 steps and batch of 128 as the first trial. The replacement positions sample labeled TACO glass and plastic with equal probability. Out-of-fold predictions use source-batch groups and exclude near neighbors from training. The final checkpoint learns from all development crops, evaluated on TrashNet val.",
+  "selection": {
+    "min_development_gain": 0.02,
+    "min_gain_over_in_domain": 0.01,
+    "max_validation_f1_loss": 0.01,
+    "positive_seeds": 2,
+    "tie_break": "Highest mean development balanced recall; ties prefer fewer external samples"
+  },
+  "holdout": {
+    "min_balanced_recall_gain": 0.02,
+    "positive_seeds": 2,
+    "checks": "Mean recall for each observed label must be at least as high as original. Same recipes and checkpoints for all rows. No reselection."
+  }
+}

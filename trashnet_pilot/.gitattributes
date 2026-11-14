@@ -1,0 +1,2 @@
+# Experiment manifests, reports and scripts are fingerprinted by SHA-256.
+* -text whitespace=cr-at-eol

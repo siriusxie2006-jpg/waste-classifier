@@ -1,0 +1,49 @@
+{
+  "mode": "train",
+  "warmup_epochs": 3,
+  "finetune_epochs": 7,
+  "batch_size": 32,
+  "workers": 2,
+  "seed": 43,
+  "augmentation": "both",
+  "run_name": "multiscale_confirm_control_seed43",
+  "split": "val",
+  "head": "linear",
+  "architecture": "resnet18",
+  "finetune_scope": "layer3_layer4",
+  "class_weighting": "inverse",
+  "framing": "fit",
+  "head_lr": 0.001,
+  "backbone_lr": 0.0001,
+  "weight_decay": 0.0001,
+  "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "cuda_runtime": "12.8",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "split_manifest_sha256": "dcb36e7e183a698c837aa682635ecc606d1a7c1ab360a776b1784e8226e2bf07",
+  "pretrained_weights": "ResNet18_Weights.IMAGENET1K_V1",
+  "selection_metric": "validation macro-F1",
+  "test_evaluated": false,
+  "learning_rates": {
+    "head": 0.001,
+    "trainable_backbone": 0.0001
+  },
+  "frozen_batchnorm": "Only selected trainable blocks and the head enter train mode",
+  "evaluation_loss": "Unweighted cross-entropy for comparability",
+  "implementation_sha256": {
+    "train_baseline.py": "66ba00c466a3931601c3af75df6a25e1bfa2d80d40792e1dcb973a7a7340adf4",
+    "model_utils.py": "0c239bb3f8c14276a5cc1c55dfa72ccdb13e1a742928892edb3b8c69e0a612dd",
+    "image_framing.py": "66e4fe0ef5bbcaab957c4b84a87a747dd94c6a3fcc444f1cc3b4503aa1fa6934",
+    "multiscale_model.py": "4205c36778e12fd5620a0f9e25c354d8c318c6c74c417fa14f216ca508991479"
+  },
+  "class_weights": [
+    1.0511904954910278,
+    0.853140115737915,
+    1.007990837097168,
+    0.7126715183258057,
+    0.865686297416687,
+    3.065972328186035
+  ]
+}

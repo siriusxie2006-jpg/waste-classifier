@@ -1,0 +1,269 @@
+{
+  "plan_sha256": "57c3c88c71cd4f3491254bb5698c6ea2d573e82eabc8ff1570a464f95ee98728",
+  "rows": [
+    {
+      "recipe": "control",
+      "seed": 42,
+      "coverage": "original",
+      "run_name": "multiscale_pilot_control_seed42",
+      "checkpoint_sha256": "0ba4dfaa117fa91af9b60dc976b72b53a4b1e88726cb923fc46eab859e6af933",
+      "clean_accuracy": 0.9146666666666666,
+      "clean_f1": 0.9074924088346711,
+      "best_epoch": 7,
+      "geometry_f1": 0.8180408083447339,
+      "robustness_f1": 0.800720759771276,
+      "plastic_recall": 0.8823529411764706
+    },
+    {
+      "recipe": "control",
+      "seed": 42,
+      "coverage": "coverage",
+      "run_name": "coverage_control_seed42",
+      "checkpoint_sha256": "ede693f393c9876ea11431221a616f7c88997b473cd426898a978ddc1931cac9",
+      "clean_accuracy": 0.912,
+      "clean_f1": 0.8987783534327312,
+      "best_epoch": 7,
+      "geometry_f1": 0.8744973109439688,
+      "robustness_f1": 0.8335537916375408,
+      "plastic_recall": 0.8970588235294118
+    },
+    {
+      "recipe": "fixed",
+      "seed": 42,
+      "coverage": "original",
+      "run_name": "multiscale_pilot_fixed_seed42",
+      "checkpoint_sha256": "777b2b8f604f5b4a18fa2fdbaf0095d498466a3217dbf40806c4beea64363438",
+      "clean_accuracy": 0.9253333333333333,
+      "clean_f1": 0.9187493866643038,
+      "best_epoch": 8,
+      "geometry_f1": 0.802687657000055,
+      "robustness_f1": 0.8331960002048753,
+      "plastic_recall": 0.9264705882352942
+    },
+    {
+      "recipe": "fixed",
+      "seed": 42,
+      "coverage": "coverage",
+      "run_name": "coverage_fixed_seed42",
+      "checkpoint_sha256": "c4c8d2a461a4ef2577b3c41a42764a65232436c70bc7a522f239ca4b3ede96fb",
+      "clean_accuracy": 0.92,
+      "clean_f1": 0.9123355630945763,
+      "best_epoch": 7,
+      "geometry_f1": 0.8778541792734996,
+      "robustness_f1": 0.8346775011761132,
+      "plastic_recall": 0.8676470588235294
+    },
+    {
+      "recipe": "control",
+      "seed": 43,
+      "coverage": "original",
+      "run_name": "multiscale_confirm_control_seed43",
+      "checkpoint_sha256": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b",
+      "clean_accuracy": 0.9333333333333333,
+      "clean_f1": 0.9257362400218282,
+      "best_epoch": 9,
+      "geometry_f1": 0.8301035169981879,
+      "robustness_f1": 0.8239287341388932,
+      "plastic_recall": 0.9117647058823529
+    },
+    {
+      "recipe": "control",
+      "seed": 43,
+      "coverage": "coverage",
+      "run_name": "coverage_control_seed43",
+      "checkpoint_sha256": "10aeab4ca56f42d53a93113efaa2a7b4d53af30e870b774ddf18dd38d2fb77c4",
+      "clean_accuracy": 0.9253333333333333,
+      "clean_f1": 0.9184436820726916,
+      "best_epoch": 8,
+      "geometry_f1": 0.8969270330207266,
+      "robustness_f1": 0.8248872858793073,
+      "plastic_recall": 0.9264705882352942
+    },
+    {
+      "recipe": "fixed",
+      "seed": 43,
+      "coverage": "original",
+      "run_name": "multiscale_confirm_fixed_seed43",
+      "checkpoint_sha256": "5b6af3a5a2b4fdf1483a56e736685adcc989590a4e893005f05d6980319553c1",
+      "clean_accuracy": 0.928,
+      "clean_f1": 0.9266445789916951,
+      "best_epoch": 10,
+      "geometry_f1": 0.8347528903345197,
+      "robustness_f1": 0.8411763592403334,
+      "plastic_recall": 0.9558823529411765
+    },
+    {
+      "recipe": "fixed",
+      "seed": 43,
+      "coverage": "coverage",
+      "run_name": "coverage_fixed_seed43",
+      "checkpoint_sha256": "376a1bc87eb7a198900626f5bc0c2139a2c526523ea8b398cab561b0bcea2b89",
+      "clean_accuracy": 0.928,
+      "clean_f1": 0.9242855243788153,
+      "best_epoch": 9,
+      "geometry_f1": 0.8904116136524058,
+      "robustness_f1": 0.8189223790906974,
+      "plastic_recall": 0.8970588235294118
+    },
+    {
+      "recipe": "control",
+      "seed": 44,
+      "coverage": "original",
+      "run_name": "multiscale_confirm_control_seed44",
+      "checkpoint_sha256": "d94cdf9a56ac796d72af1c3b704b3ebf9aea99aeb19d06a3678a27ccb0131653",
+      "clean_accuracy": 0.912,
+      "clean_f1": 0.8997178556539982,
+      "best_epoch": 9,
+      "geometry_f1": 0.8109132397616775,
+      "robustness_f1": 0.8076782948216095,
+      "plastic_recall": 0.8970588235294118
+    },
+    {
+      "recipe": "control",
+      "seed": 44,
+      "coverage": "coverage",
+      "run_name": "coverage_control_seed44",
+      "checkpoint_sha256": "ef52f17bd6d6d039ef4fc8f6b3be476ecabf82b58b64fa8ec8ab2dc1751130fa",
+      "clean_accuracy": 0.912,
+      "clean_f1": 0.8916843759981016,
+      "best_epoch": 9,
+      "geometry_f1": 0.8701449630805747,
+      "robustness_f1": 0.7918112205286645,
+      "plastic_recall": 0.8676470588235294
+    },
+    {
+      "recipe": "fixed",
+      "seed": 44,
+      "coverage": "original",
+      "run_name": "multiscale_confirm_fixed_seed44",
+      "checkpoint_sha256": "35aa0c2ac45306143896299558a9d5416e530ae4a9b88219c759e419374604b7",
+      "clean_accuracy": 0.912,
+      "clean_f1": 0.9068441431547911,
+      "best_epoch": 10,
+      "geometry_f1": 0.8179828581394396,
+      "robustness_f1": 0.835823206862786,
+      "plastic_recall": 0.8823529411764706
+    },
+    {
+      "recipe": "fixed",
+      "seed": 44,
+      "coverage": "coverage",
+      "run_name": "coverage_fixed_seed44",
+      "checkpoint_sha256": "63a1cb57d2188bdc92777b50b210ff73ae13e8ef2967d699cebc03192c693416",
+      "clean_accuracy": 0.9226666666666666,
+      "clean_f1": 0.9137217128732357,
+      "best_epoch": 10,
+      "geometry_f1": 0.8798026452442622,
+      "robustness_f1": 0.8113281317719412,
+      "plastic_recall": 0.8823529411764706
+    }
+  ],
+  "paired_differences": [
+    {
+      "comparison": "coverage_control",
+      "seed": 42,
+      "geometry_f1": 0.05645650259923485,
+      "clean_f1": -0.008714055401939924,
+      "robustness_f1": 0.03283303186626485,
+      "plastic_recall": 0.014705882352941235
+    },
+    {
+      "comparison": "coverage_control",
+      "seed": 43,
+      "geometry_f1": 0.06682351602253878,
+      "clean_f1": -0.0072925579491366355,
+      "robustness_f1": 0.0009585517404140376,
+      "plastic_recall": 0.014705882352941235
+    },
+    {
+      "comparison": "coverage_control",
+      "seed": 44,
+      "geometry_f1": 0.059231723318897145,
+      "clean_f1": -0.008033479655896625,
+      "robustness_f1": -0.015867074292944983,
+      "plastic_recall": -0.02941176470588236
+    },
+    {
+      "comparison": "coverage_fixed",
+      "seed": 42,
+      "geometry_f1": 0.07516652227344467,
+      "clean_f1": -0.006413823569727528,
+      "robustness_f1": 0.0014815009712378924,
+      "plastic_recall": -0.05882352941176472
+    },
+    {
+      "comparison": "coverage_fixed",
+      "seed": 43,
+      "geometry_f1": 0.05565872331788613,
+      "clean_f1": -0.002359054612879774,
+      "robustness_f1": -0.022253980149635977,
+      "plastic_recall": -0.05882352941176472
+    },
+    {
+      "comparison": "coverage_fixed",
+      "seed": 44,
+      "geometry_f1": 0.06181978710482261,
+      "clean_f1": 0.006877569718444554,
+      "robustness_f1": -0.02449507509084481,
+      "plastic_recall": 0.0
+    },
+    {
+      "comparison": "fusion_with_coverage",
+      "seed": 42,
+      "geometry_f1": 0.00335686832953086,
+      "clean_f1": 0.013557209661845149,
+      "robustness_f1": 0.0011237095385723261,
+      "plastic_recall": -0.02941176470588236
+    },
+    {
+      "comparison": "fusion_with_coverage",
+      "seed": 43,
+      "geometry_f1": -0.006515419368320785,
+      "clean_f1": 0.0058418423061237235,
+      "robustness_f1": -0.005964906788609836,
+      "plastic_recall": -0.02941176470588236
+    },
+    {
+      "comparison": "fusion_with_coverage",
+      "seed": 44,
+      "geometry_f1": 0.009657682163687564,
+      "clean_f1": 0.022037336875134095,
+      "robustness_f1": 0.019516911243276702,
+      "plastic_recall": 0.014705882352941124
+    }
+  ],
+  "decisions": {
+    "coverage_control": {
+      "mean_deltas": {
+        "geometry_f1": 0.06083724731355692,
+        "clean_f1": -0.008013364335657728,
+        "robustness_f1": 0.005974836437911302,
+        "plastic_recall": 3.700743415417188e-17
+      },
+      "checks": {
+        "geometry_gain": true,
+        "positive_seeds": true,
+        "clean_preserved": true,
+        "plastic_preserved": true,
+        "robustness_preserved": true
+      },
+      "passed": true
+    },
+    "fusion_with_coverage": {
+      "mean_deltas": {
+        "geometry_f1": 0.0021663770416325465,
+        "clean_f1": 0.013812129614367655,
+        "robustness_f1": 0.004891904664413064,
+        "plastic_recall": -0.014705882352941199
+      },
+      "checks": {
+        "geometry_gain": false,
+        "positive_seeds": true,
+        "clean_preserved": true,
+        "plastic_preserved": true
+      },
+      "passed": false
+    }
+  },
+  "test_evaluated": false
+}

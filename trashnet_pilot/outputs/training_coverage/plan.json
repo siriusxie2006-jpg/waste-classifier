@@ -1,0 +1,149 @@
+{
+  "common": {
+    "warmup_epochs": 3,
+    "finetune_epochs": 7,
+    "batch_size": 32,
+    "workers": 2,
+    "augmentation": "both",
+    "class_weighting": "inverse",
+    "framing": "fit",
+    "head": "linear",
+    "head_lr": 0.001,
+    "backbone_lr": 0.0001,
+    "weight_decay": 0.0001,
+    "finetune_scope": "layer3_layer4"
+  },
+  "runs": [
+    {
+      "recipe": "control",
+      "seed": 42,
+      "reference": "multiscale_pilot_control_seed42",
+      "run_name": "coverage_control_seed42",
+      "architecture": "resnet18"
+    },
+    {
+      "recipe": "fixed",
+      "seed": 42,
+      "reference": "multiscale_pilot_fixed_seed42",
+      "run_name": "coverage_fixed_seed42",
+      "architecture": "multiscale_fixed"
+    },
+    {
+      "recipe": "control",
+      "seed": 43,
+      "reference": "multiscale_confirm_control_seed43",
+      "run_name": "coverage_control_seed43",
+      "architecture": "resnet18"
+    },
+    {
+      "recipe": "fixed",
+      "seed": 43,
+      "reference": "multiscale_confirm_fixed_seed43",
+      "run_name": "coverage_fixed_seed43",
+      "architecture": "multiscale_fixed"
+    },
+    {
+      "recipe": "control",
+      "seed": 44,
+      "reference": "multiscale_confirm_control_seed44",
+      "run_name": "coverage_control_seed44",
+      "architecture": "resnet18"
+    },
+    {
+      "recipe": "fixed",
+      "seed": 44,
+      "reference": "multiscale_confirm_fixed_seed44",
+      "run_name": "coverage_fixed_seed44",
+      "architecture": "multiscale_fixed"
+    }
+  ],
+  "geometry_policy": {
+    "canvas_colors": [
+      [
+        255,
+        255,
+        255
+      ],
+      [
+        124,
+        116,
+        104
+      ]
+    ],
+    "rotation_probability": 0.5,
+    "rotation_degrees": [
+      90,
+      180,
+      270
+    ],
+    "shrink_probability": 0.5,
+    "scale_range": [
+      0.75,
+      1.0
+    ]
+  },
+  "class_counts": {
+    "cardboard": 280,
+    "glass": 345,
+    "metal": 292,
+    "paper": 413,
+    "plastic": 340,
+    "trash": 96
+  },
+  "label_boundary_examples": [
+    "data/source/dataset-resized/trash/trash34.jpg",
+    "data/source/dataset-resized/trash/trash77.jpg",
+    "data/source/dataset-resized/trash/trash24.jpg"
+  ],
+  "split_manifest_sha256": "dcb36e7e183a698c837aa682635ecc606d1a7c1ab360a776b1784e8226e2bf07",
+  "pretrained_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "reference_results_sha256": "00291cb405528b3c569d07d13bd0fe691b4ae6e8d89a8c76d0de8da60e376c81",
+  "reference_artifacts_sha256": "15882c70c52a7007c3c2b3f0c502c85d59a6878757da7cf733d22efe6f2b644c",
+  "source_sha256": {
+    "train_geometry_coverage.py": "4b53f9873eb76f4fc52e95749858a1ac82c59648cd52775adc82b3b637301c56",
+    "train_baseline.py": "09b652812eb5ab86d2c762d345b11d8cfd8e94d83d913e173b33a380cafd9fb9",
+    "model_utils.py": "fd0e01cca68a7474d817b9936b185fddd2ba97556e12cca7429c8373d4419529",
+    "multiscale_model.py": "4205c36778e12fd5620a0f9e25c354d8c318c6c74c417fa14f216ca508991479",
+    "capacity_control.py": "f23475e8ef9c83530110656ac3da21404121c9e9f7c1b63c4458945e04ce5e22",
+    "image_framing.py": "66e4fe0ef5bbcaab957c4b84a87a747dd94c6a3fcc444f1cc3b4503aa1fa6934",
+    "domain_probes.py": "3c1d33a232d350170742a9277df722782ae2ce94ded6a3005d84be0928d8cd1a",
+    "diagnose_domain_inputs.py": "c61cb77b1e9e0104e54a40189008712970a8efb4895096585429a9ad6e312811",
+    "external_metrics.py": "92409cd445edcc82348e7de5b32a385b407b64f89de6bfef347934b170011b1e",
+    "preview_robustness.py": "c8ce5503a58df3c6814e63f3fd4994a169766b8eb4be2a9fb5a1735b47d2a4ca"
+  },
+  "geometry_conditions": [
+    "original_white",
+    "existing_mean_pad",
+    "shrink75_white",
+    "shrink75_mean",
+    "rotate90",
+    "rotate180"
+  ],
+  "robustness_conditions": [
+    "clean",
+    "brightness_0.7",
+    "brightness_0.4",
+    "brightness_0.2",
+    "blur_1",
+    "blur_2",
+    "blur_4",
+    "brightness_1.3",
+    "brightness_1.7"
+  ],
+  "coverage_rule": {
+    "min_geometry_gain": 0.02,
+    "min_positive_seeds": 2,
+    "max_clean_loss": 0.01,
+    "max_robustness_loss": 0.01,
+    "max_plastic_recall_loss": 0.02
+  },
+  "fusion_rule": {
+    "min_geometry_gain": 0.005,
+    "min_positive_seeds": 2,
+    "max_clean_loss": 0.01,
+    "max_plastic_recall_loss": 0.02
+  },
+  "decision_split": "val",
+  "validation_count": 375,
+  "test_evaluated": false
+}

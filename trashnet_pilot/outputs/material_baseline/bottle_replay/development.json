@@ -1,0 +1,1846 @@
+{
+  "plan_sha256": "1a78f13d4e78029f18f2e3a9888e02ab9b17e4f1880a854c60f338edd61128f8",
+  "rows": [
+    {
+      "seed": 42,
+      "recipe": "original",
+      "validation": {
+        "count": 375,
+        "accuracy": 0.9146666666666666,
+        "recall": {
+          "cardboard": 0.9230769230769231,
+          "glass": 0.8933333333333333,
+          "metal": 0.9444444444444444,
+          "paper": 0.9560439560439561,
+          "plastic": 0.8823529411764706,
+          "trash": 0.8181818181818182
+        },
+        "balanced_recall": 0.9029055693761576,
+        "macro_f1": 0.9074924088346711,
+        "confusion_matrix": [
+          [
+            60,
+            0,
+            0,
+            4,
+            1,
+            0
+          ],
+          [
+            0,
+            67,
+            7,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            51,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            87,
+            2,
+            2
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            60,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            0,
+            18
+          ]
+        ]
+      },
+      "development": {
+        "count": 79,
+        "accuracy": 0.25316455696202533,
+        "recall": {
+          "glass": 0.17647058823529413,
+          "plastic": 0.27419354838709675
+        },
+        "balanced_recall": 0.22533206831119545,
+        "macro_f1": 0.3278846153846154,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            3,
+            8,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            6,
+            25,
+            12,
+            17,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/multiscale_pilot_control_seed42/best_model.pt",
+        "sha256": "0ba4dfaa117fa91af9b60dc976b72b53a4b1e88726cb923fc46eab859e6af933"
+      }
+    },
+    {
+      "seed": 42,
+      "recipe": "in_domain",
+      "validation": {
+        "count": 375,
+        "accuracy": 0.928,
+        "recall": {
+          "cardboard": 0.9230769230769231,
+          "glass": 0.8933333333333333,
+          "metal": 0.9444444444444444,
+          "paper": 0.967032967032967,
+          "plastic": 0.9411764705882353,
+          "trash": 0.8181818181818182
+        },
+        "balanced_recall": 0.9145409927762869,
+        "macro_f1": 0.9189525485710508,
+        "confusion_matrix": [
+          [
+            60,
+            0,
+            0,
+            4,
+            1,
+            0
+          ],
+          [
+            0,
+            67,
+            7,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            51,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            88,
+            1,
+            2
+          ],
+          [
+            0,
+            4,
+            0,
+            0,
+            64,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            0,
+            18
+          ]
+        ]
+      },
+      "development": {
+        "count": 79,
+        "accuracy": 0.3291139240506329,
+        "recall": {
+          "glass": 0.17647058823529413,
+          "plastic": 0.3709677419354839
+        },
+        "balanced_recall": 0.273719165085389,
+        "macro_f1": 0.3978766430738119,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            3,
+            8,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            3,
+            23,
+            12,
+            23,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/weights/in_domain_seed42.pt",
+        "sha256": "85a618cd6147bfdfd79b7d374168efff0e9f8403647a8c422bde1e8814389aaa"
+      }
+    },
+    {
+      "seed": 43,
+      "recipe": "original",
+      "validation": {
+        "count": 375,
+        "accuracy": 0.9333333333333333,
+        "recall": {
+          "cardboard": 0.9538461538461539,
+          "glass": 0.8933333333333333,
+          "metal": 0.9814814814814815,
+          "paper": 0.967032967032967,
+          "plastic": 0.9117647058823529,
+          "trash": 0.8181818181818182
+        },
+        "balanced_recall": 0.9209400766263511,
+        "macro_f1": 0.9257362400218282,
+        "confusion_matrix": [
+          [
+            62,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            67,
+            5,
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            1,
+            53,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            88,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            4,
+            0,
+            62,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            0,
+            18
+          ]
+        ]
+      },
+      "development": {
+        "count": 79,
+        "accuracy": 0.22784810126582278,
+        "recall": {
+          "glass": 0.29411764705882354,
+          "plastic": 0.20967741935483872
+        },
+        "balanced_recall": 0.2518975332068311,
+        "macro_f1": 0.3225677830940989,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            5,
+            3,
+            4,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            11,
+            25,
+            5,
+            13,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/multiscale_confirm_control_seed43/best_model.pt",
+        "sha256": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b"
+      }
+    },
+    {
+      "seed": 43,
+      "recipe": "in_domain",
+      "validation": {
+        "count": 375,
+        "accuracy": 0.944,
+        "recall": {
+          "cardboard": 0.9538461538461539,
+          "glass": 0.9333333333333333,
+          "metal": 0.9814814814814815,
+          "paper": 0.967032967032967,
+          "plastic": 0.9117647058823529,
+          "trash": 0.8636363636363636
+        },
+        "balanced_recall": 0.9351825008687754,
+        "macro_f1": 0.9384533012262221,
+        "confusion_matrix": [
+          [
+            62,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            0,
+            70,
+            3,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            1,
+            53,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            88,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            4,
+            0,
+            62,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            2,
+            0,
+            19
+          ]
+        ]
+      },
+      "development": {
+        "count": 79,
+        "accuracy": 0.24050632911392406,
+        "recall": {
+          "glass": 0.29411764705882354,
+          "plastic": 0.22580645161290322
+        },
+        "balanced_recall": 0.25996204933586337,
+        "macro_f1": 0.33333333333333337,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            5,
+            3,
+            4,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            9,
+            11,
+            24,
+            4,
+            14,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/weights/in_domain_seed43.pt",
+        "sha256": "05e4d18d38a746b4a658acd70bcb118731358a062aaf58de9e2484c1f7c15a66"
+      }
+    },
+    {
+      "seed": 44,
+      "recipe": "original",
+      "validation": {
+        "count": 375,
+        "accuracy": 0.912,
+        "recall": {
+          "cardboard": 0.8923076923076924,
+          "glass": 0.8933333333333333,
+          "metal": 0.9814814814814815,
+          "paper": 0.945054945054945,
+          "plastic": 0.8970588235294118,
+          "trash": 0.7727272727272727
+        },
+        "balanced_recall": 0.8969939247390228,
+        "macro_f1": 0.8997178556539982,
+        "confusion_matrix": [
+          [
+            58,
+            0,
+            0,
+            5,
+            1,
+            1
+          ],
+          [
+            0,
+            67,
+            7,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            53,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            86,
+            2,
+            2
+          ],
+          [
+            0,
+            6,
+            1,
+            0,
+            61,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            1,
+            17
+          ]
+        ]
+      },
+      "development": {
+        "count": 79,
+        "accuracy": 0.3670886075949367,
+        "recall": {
+          "glass": 0.35294117647058826,
+          "plastic": 0.3709677419354839
+        },
+        "balanced_recall": 0.36195445920303604,
+        "macro_f1": 0.5074418604651163,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            6,
+            3,
+            6,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            2,
+            21,
+            11,
+            23,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/multiscale_confirm_control_seed44/best_model.pt",
+        "sha256": "d94cdf9a56ac796d72af1c3b704b3ebf9aea99aeb19d06a3678a27ccb0131653"
+      }
+    },
+    {
+      "seed": 44,
+      "recipe": "in_domain",
+      "validation": {
+        "count": 375,
+        "accuracy": 0.9093333333333333,
+        "recall": {
+          "cardboard": 0.9076923076923077,
+          "glass": 0.88,
+          "metal": 0.9629629629629629,
+          "paper": 0.945054945054945,
+          "plastic": 0.8970588235294118,
+          "trash": 0.7727272727272727
+        },
+        "balanced_recall": 0.8942493853278167,
+        "macro_f1": 0.8956220169784205,
+        "confusion_matrix": [
+          [
+            59,
+            0,
+            0,
+            5,
+            1,
+            0
+          ],
+          [
+            0,
+            66,
+            6,
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            1,
+            52,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            86,
+            2,
+            2
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            61,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            1,
+            17
+          ]
+        ]
+      },
+      "development": {
+        "count": 79,
+        "accuracy": 0.35443037974683544,
+        "recall": {
+          "glass": 0.23529411764705882,
+          "plastic": 0.3870967741935484
+        },
+        "balanced_recall": 0.31119544592030357,
+        "macro_f1": 0.44664031620553357,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            4,
+            3,
+            6,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            2,
+            21,
+            10,
+            24,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/weights/in_domain_seed44.pt",
+        "sha256": "ea01cceaff57398a402894512d7054a7c2248b4ba8719c0a5bfe9ac297fd1647"
+      }
+    },
+    {
+      "seed": 42,
+      "recipe": "bottle_3_125",
+      "development": {
+        "count": 79,
+        "accuracy": 0.7215189873417721,
+        "recall": {
+          "glass": 0.5294117647058824,
+          "plastic": 0.7741935483870968
+        },
+        "balanced_recall": 0.6518026565464896,
+        "macro_f1": 0.678498985801217,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            9,
+            1,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            2,
+            4,
+            48,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "validation": {
+        "count": 375,
+        "accuracy": 0.928,
+        "recall": {
+          "cardboard": 0.9230769230769231,
+          "glass": 0.92,
+          "metal": 0.9444444444444444,
+          "paper": 0.9560439560439561,
+          "plastic": 0.9264705882352942,
+          "trash": 0.8181818181818182
+        },
+        "balanced_recall": 0.9147029549970727,
+        "macro_f1": 0.9196693725441353,
+        "confusion_matrix": [
+          [
+            60,
+            0,
+            0,
+            4,
+            1,
+            0
+          ],
+          [
+            0,
+            69,
+            5,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            51,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            87,
+            2,
+            2
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            63,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            0,
+            18
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/bottle_replay/bottle_3_125_seed42.pt",
+        "sha256": "0443114d2429228b1b204dae2ed518eab109dba4cd8f10655a5cbeea5413962c"
+      }
+    },
+    {
+      "seed": 42,
+      "recipe": "bottle_6_25",
+      "development": {
+        "count": 79,
+        "accuracy": 0.7215189873417721,
+        "recall": {
+          "glass": 0.5882352941176471,
+          "plastic": 0.7580645161290323
+        },
+        "balanced_recall": 0.6731499051233396,
+        "macro_f1": 0.6683303085299455,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            11,
+            2,
+            2,
+            47,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "validation": {
+        "count": 375,
+        "accuracy": 0.92,
+        "recall": {
+          "cardboard": 0.9230769230769231,
+          "glass": 0.9066666666666666,
+          "metal": 0.9074074074074074,
+          "paper": 0.9560439560439561,
+          "plastic": 0.9411764705882353,
+          "trash": 0.7727272727272727
+        },
+        "balanced_recall": 0.9011831160850768,
+        "macro_f1": 0.908212706960771,
+        "confusion_matrix": [
+          [
+            60,
+            0,
+            0,
+            4,
+            1,
+            0
+          ],
+          [
+            0,
+            68,
+            6,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            49,
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            87,
+            2,
+            2
+          ],
+          [
+            0,
+            4,
+            0,
+            0,
+            64,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            1,
+            17
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/bottle_replay/bottle_6_25_seed42.pt",
+        "sha256": "bf4af3296f7ba65799a23bf9c7b542434cf4453fb1a22ade5c43a7b0f4d75d35"
+      }
+    },
+    {
+      "seed": 43,
+      "recipe": "bottle_3_125",
+      "development": {
+        "count": 79,
+        "accuracy": 0.6455696202531646,
+        "recall": {
+          "glass": 0.5294117647058824,
+          "plastic": 0.6774193548387096
+        },
+        "balanced_recall": 0.603415559772296,
+        "macro_f1": 0.6138888888888889,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            9,
+            2,
+            1,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            14,
+            4,
+            1,
+            42,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "validation": {
+        "count": 375,
+        "accuracy": 0.9306666666666666,
+        "recall": {
+          "cardboard": 0.9384615384615385,
+          "glass": 0.92,
+          "metal": 0.8888888888888888,
+          "paper": 0.967032967032967,
+          "plastic": 0.9411764705882353,
+          "trash": 0.8636363636363636
+        },
+        "balanced_recall": 0.9198660381013322,
+        "macro_f1": 0.9255816606880437,
+        "confusion_matrix": [
+          [
+            61,
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            69,
+            2,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            3,
+            48,
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            88,
+            2,
+            1
+          ],
+          [
+            0,
+            1,
+            3,
+            0,
+            64,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            2,
+            0,
+            19
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/bottle_replay/bottle_3_125_seed43.pt",
+        "sha256": "0e894ac84c70aecbdd6fbc8be7c8de40ac2bfc3381c92f9dde36781183e24158"
+      }
+    },
+    {
+      "seed": 43,
+      "recipe": "bottle_6_25",
+      "development": {
+        "count": 79,
+        "accuracy": 0.6962025316455697,
+        "recall": {
+          "glass": 0.5294117647058824,
+          "plastic": 0.7419354838709677
+        },
+        "balanced_recall": 0.6356736242884251,
+        "macro_f1": 0.6342780026990553,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            9,
+            1,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            13,
+            2,
+            0,
+            46,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "validation": {
+        "count": 375,
+        "accuracy": 0.9306666666666666,
+        "recall": {
+          "cardboard": 0.9230769230769231,
+          "glass": 0.9333333333333333,
+          "metal": 0.8888888888888888,
+          "paper": 0.967032967032967,
+          "plastic": 0.9411764705882353,
+          "trash": 0.8636363636363636
+        },
+        "balanced_recall": 0.9195241577594518,
+        "macro_f1": 0.9267063190846526,
+        "confusion_matrix": [
+          [
+            60,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            70,
+            2,
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            2,
+            48,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            88,
+            2,
+            1
+          ],
+          [
+            0,
+            4,
+            0,
+            0,
+            64,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            2,
+            0,
+            19
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/bottle_replay/bottle_6_25_seed43.pt",
+        "sha256": "c02dcadd7dcc81f0be5553ca67944cb31c46899d3c3b35a64983f477404693c3"
+      }
+    },
+    {
+      "seed": 44,
+      "recipe": "bottle_3_125",
+      "development": {
+        "count": 79,
+        "accuracy": 0.7215189873417721,
+        "recall": {
+          "glass": 0.5882352941176471,
+          "plastic": 0.7580645161290323
+        },
+        "balanced_recall": 0.6731499051233396,
+        "macro_f1": 0.6864734299516908,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            0,
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            2,
+            4,
+            47,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "validation": {
+        "count": 375,
+        "accuracy": 0.9066666666666666,
+        "recall": {
+          "cardboard": 0.9076923076923077,
+          "glass": 0.8933333333333333,
+          "metal": 0.9444444444444444,
+          "paper": 0.945054945054945,
+          "plastic": 0.8823529411764706,
+          "trash": 0.7727272727272727
+        },
+        "balanced_recall": 0.8909342074047957,
+        "macro_f1": 0.8950611115316996,
+        "confusion_matrix": [
+          [
+            59,
+            0,
+            0,
+            5,
+            1,
+            0
+          ],
+          [
+            0,
+            67,
+            5,
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            1,
+            51,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            86,
+            2,
+            2
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            60,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            1,
+            17
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/bottle_replay/bottle_3_125_seed44.pt",
+        "sha256": "5dcd7991672e74ee8b2e816011fb0e0dc30c543c4adc90f584d8b604ee4d55bd"
+      }
+    },
+    {
+      "seed": 44,
+      "recipe": "bottle_6_25",
+      "development": {
+        "count": 79,
+        "accuracy": 0.7215189873417721,
+        "recall": {
+          "glass": 0.5294117647058824,
+          "plastic": 0.7741935483870968
+        },
+        "balanced_recall": 0.6518026565464896,
+        "macro_f1": 0.6673992673992674,
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            0,
+            1,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            9,
+            2,
+            3,
+            48,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "validation": {
+        "count": 375,
+        "accuracy": 0.9066666666666666,
+        "recall": {
+          "cardboard": 0.9076923076923077,
+          "glass": 0.8933333333333333,
+          "metal": 0.9444444444444444,
+          "paper": 0.945054945054945,
+          "plastic": 0.8823529411764706,
+          "trash": 0.7727272727272727
+        },
+        "balanced_recall": 0.8909342074047957,
+        "macro_f1": 0.8950611115316996,
+        "confusion_matrix": [
+          [
+            59,
+            0,
+            0,
+            5,
+            1,
+            0
+          ],
+          [
+            0,
+            67,
+            5,
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            1,
+            51,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            86,
+            2,
+            2
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            60,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            3,
+            1,
+            17
+          ]
+        ]
+      },
+      "weight": {
+        "path": "outputs/material_baseline/bottle_replay/bottle_6_25_seed44.pt",
+        "sha256": "a76c2cbde932f277a30d321aa5cc02d7f075895c84bbe73c3f0a20e7efca90f8"
+      }
+    }
+  ],
+  "folds": [
+    {
+      "test": [
+        "data/bottle_material/bottle_0039.png",
+        "data/bottle_material/bottle_0010.png",
+        "data/bottle_material/bottle_0026.png",
+        "data/bottle_material/bottle_0000.png",
+        "data/bottle_material/bottle_0037.png",
+        "data/bottle_material/bottle_0025.png",
+        "data/bottle_material/bottle_0040.png",
+        "data/bottle_material/bottle_0008.png",
+        "data/bottle_material/bottle_0060.png",
+        "data/bottle_material/bottle_0013.png",
+        "data/bottle_material/bottle_0028.png",
+        "data/bottle_material/bottle_0027.png",
+        "data/bottle_material/bottle_0036.png",
+        "data/bottle_material/bottle_0007.png",
+        "data/bottle_material/bottle_0875.png",
+        "data/bottle_material/bottle_0089.png",
+        "data/bottle_material/bottle_0002.png"
+      ],
+      "fit": [
+        "data/bottle_material/bottle_0793.png",
+        "data/bottle_material/bottle_1102.png",
+        "data/bottle_material/bottle_0187.png",
+        "data/bottle_material/bottle_1000.png",
+        "data/bottle_material/bottle_0783.png",
+        "data/bottle_material/bottle_1010.png",
+        "data/bottle_material/bottle_1236.png",
+        "data/bottle_material/bottle_1277.png",
+        "data/bottle_material/bottle_1257.png",
+        "data/bottle_material/bottle_0192.png",
+        "data/bottle_material/bottle_1467.png",
+        "data/bottle_material/bottle_0975.png",
+        "data/bottle_material/bottle_1224.png",
+        "data/bottle_material/bottle_0830.png",
+        "data/bottle_material/bottle_1091.png",
+        "data/bottle_material/bottle_0849.png",
+        "data/bottle_material/bottle_1222.png",
+        "data/bottle_material/bottle_0101.png",
+        "data/bottle_material/bottle_1241.png",
+        "data/bottle_material/bottle_1013.png",
+        "data/bottle_material/bottle_0965.png",
+        "data/bottle_material/bottle_0855.png",
+        "data/bottle_material/bottle_0996.png",
+        "data/bottle_material/bottle_1080.png",
+        "data/bottle_material/bottle_1099.png",
+        "data/bottle_material/bottle_1155.png",
+        "data/bottle_material/bottle_0130.png",
+        "data/bottle_material/bottle_1268.png",
+        "data/bottle_material/bottle_0782.png",
+        "data/bottle_material/bottle_1292.png",
+        "data/bottle_material/bottle_1045.png",
+        "data/bottle_material/bottle_0103.png",
+        "data/bottle_material/bottle_1025.png",
+        "data/bottle_material/bottle_0106.png",
+        "data/bottle_material/bottle_1491.png",
+        "data/bottle_material/bottle_0794.png",
+        "data/bottle_material/bottle_1019.png",
+        "data/bottle_material/bottle_1118.png",
+        "data/bottle_material/bottle_1168.png",
+        "data/bottle_material/bottle_1127.png",
+        "data/bottle_material/bottle_1157.png",
+        "data/bottle_material/bottle_1252.png",
+        "data/bottle_material/bottle_1133.png",
+        "data/bottle_material/bottle_1096.png",
+        "data/bottle_material/bottle_0964.png",
+        "data/bottle_material/bottle_0999.png",
+        "data/bottle_material/bottle_1243.png",
+        "data/bottle_material/bottle_1238.png",
+        "data/bottle_material/bottle_1088.png",
+        "data/bottle_material/bottle_1164.png",
+        "data/bottle_material/bottle_1490.png",
+        "data/bottle_material/bottle_0198.png",
+        "data/bottle_material/bottle_1469.png",
+        "data/bottle_material/bottle_1404.png",
+        "data/bottle_material/bottle_1405.png",
+        "data/bottle_material/bottle_1131.png",
+        "data/bottle_material/bottle_1188.png",
+        "data/bottle_material/bottle_1077.png",
+        "data/bottle_material/bottle_0182.png",
+        "data/bottle_material/bottle_1153.png",
+        "data/bottle_material/bottle_1283.png",
+        "data/bottle_material/bottle_1272.png"
+      ]
+    },
+    {
+      "test": [
+        "data/bottle_material/bottle_0793.png",
+        "data/bottle_material/bottle_1102.png",
+        "data/bottle_material/bottle_0187.png",
+        "data/bottle_material/bottle_0783.png",
+        "data/bottle_material/bottle_0192.png",
+        "data/bottle_material/bottle_0830.png",
+        "data/bottle_material/bottle_1091.png",
+        "data/bottle_material/bottle_0849.png",
+        "data/bottle_material/bottle_0101.png",
+        "data/bottle_material/bottle_0855.png",
+        "data/bottle_material/bottle_1080.png",
+        "data/bottle_material/bottle_1099.png",
+        "data/bottle_material/bottle_1155.png",
+        "data/bottle_material/bottle_0130.png",
+        "data/bottle_material/bottle_0782.png",
+        "data/bottle_material/bottle_0103.png",
+        "data/bottle_material/bottle_0106.png",
+        "data/bottle_material/bottle_0794.png",
+        "data/bottle_material/bottle_1118.png",
+        "data/bottle_material/bottle_1168.png",
+        "data/bottle_material/bottle_1127.png",
+        "data/bottle_material/bottle_1157.png",
+        "data/bottle_material/bottle_1133.png",
+        "data/bottle_material/bottle_1096.png",
+        "data/bottle_material/bottle_1088.png",
+        "data/bottle_material/bottle_1164.png",
+        "data/bottle_material/bottle_0198.png",
+        "data/bottle_material/bottle_1131.png",
+        "data/bottle_material/bottle_1077.png",
+        "data/bottle_material/bottle_0182.png",
+        "data/bottle_material/bottle_1153.png"
+      ],
+      "fit": [
+        "data/bottle_material/bottle_0039.png",
+        "data/bottle_material/bottle_1000.png",
+        "data/bottle_material/bottle_0010.png",
+        "data/bottle_material/bottle_0026.png",
+        "data/bottle_material/bottle_0000.png",
+        "data/bottle_material/bottle_1010.png",
+        "data/bottle_material/bottle_0037.png",
+        "data/bottle_material/bottle_1236.png",
+        "data/bottle_material/bottle_1277.png",
+        "data/bottle_material/bottle_1257.png",
+        "data/bottle_material/bottle_0025.png",
+        "data/bottle_material/bottle_0040.png",
+        "data/bottle_material/bottle_1467.png",
+        "data/bottle_material/bottle_0975.png",
+        "data/bottle_material/bottle_1224.png",
+        "data/bottle_material/bottle_1222.png",
+        "data/bottle_material/bottle_1241.png",
+        "data/bottle_material/bottle_0008.png",
+        "data/bottle_material/bottle_1013.png",
+        "data/bottle_material/bottle_0965.png",
+        "data/bottle_material/bottle_0996.png",
+        "data/bottle_material/bottle_0060.png",
+        "data/bottle_material/bottle_1268.png",
+        "data/bottle_material/bottle_0013.png",
+        "data/bottle_material/bottle_1292.png",
+        "data/bottle_material/bottle_1045.png",
+        "data/bottle_material/bottle_1025.png",
+        "data/bottle_material/bottle_1491.png",
+        "data/bottle_material/bottle_0028.png",
+        "data/bottle_material/bottle_1019.png",
+        "data/bottle_material/bottle_0027.png",
+        "data/bottle_material/bottle_0036.png",
+        "data/bottle_material/bottle_1252.png",
+        "data/bottle_material/bottle_0007.png",
+        "data/bottle_material/bottle_0964.png",
+        "data/bottle_material/bottle_0999.png",
+        "data/bottle_material/bottle_1243.png",
+        "data/bottle_material/bottle_1238.png",
+        "data/bottle_material/bottle_1490.png",
+        "data/bottle_material/bottle_1469.png",
+        "data/bottle_material/bottle_1404.png",
+        "data/bottle_material/bottle_1405.png",
+        "data/bottle_material/bottle_1188.png",
+        "data/bottle_material/bottle_1283.png",
+        "data/bottle_material/bottle_0875.png",
+        "data/bottle_material/bottle_1272.png",
+        "data/bottle_material/bottle_0089.png",
+        "data/bottle_material/bottle_0002.png"
+      ]
+    },
+    {
+      "test": [
+        "data/bottle_material/bottle_1000.png",
+        "data/bottle_material/bottle_1010.png",
+        "data/bottle_material/bottle_1236.png",
+        "data/bottle_material/bottle_1277.png",
+        "data/bottle_material/bottle_1257.png",
+        "data/bottle_material/bottle_1467.png",
+        "data/bottle_material/bottle_0975.png",
+        "data/bottle_material/bottle_1224.png",
+        "data/bottle_material/bottle_1222.png",
+        "data/bottle_material/bottle_1241.png",
+        "data/bottle_material/bottle_1013.png",
+        "data/bottle_material/bottle_0965.png",
+        "data/bottle_material/bottle_0996.png",
+        "data/bottle_material/bottle_1268.png",
+        "data/bottle_material/bottle_1292.png",
+        "data/bottle_material/bottle_1045.png",
+        "data/bottle_material/bottle_1025.png",
+        "data/bottle_material/bottle_1491.png",
+        "data/bottle_material/bottle_1019.png",
+        "data/bottle_material/bottle_1252.png",
+        "data/bottle_material/bottle_0964.png",
+        "data/bottle_material/bottle_0999.png",
+        "data/bottle_material/bottle_1243.png",
+        "data/bottle_material/bottle_1238.png",
+        "data/bottle_material/bottle_1490.png",
+        "data/bottle_material/bottle_1469.png",
+        "data/bottle_material/bottle_1404.png",
+        "data/bottle_material/bottle_1405.png",
+        "data/bottle_material/bottle_1188.png",
+        "data/bottle_material/bottle_1283.png",
+        "data/bottle_material/bottle_1272.png"
+      ],
+      "fit": [
+        "data/bottle_material/bottle_0039.png",
+        "data/bottle_material/bottle_0793.png",
+        "data/bottle_material/bottle_1102.png",
+        "data/bottle_material/bottle_0187.png",
+        "data/bottle_material/bottle_0010.png",
+        "data/bottle_material/bottle_0783.png",
+        "data/bottle_material/bottle_0026.png",
+        "data/bottle_material/bottle_0000.png",
+        "data/bottle_material/bottle_0037.png",
+        "data/bottle_material/bottle_0025.png",
+        "data/bottle_material/bottle_0040.png",
+        "data/bottle_material/bottle_0192.png",
+        "data/bottle_material/bottle_0830.png",
+        "data/bottle_material/bottle_1091.png",
+        "data/bottle_material/bottle_0849.png",
+        "data/bottle_material/bottle_0101.png",
+        "data/bottle_material/bottle_0008.png",
+        "data/bottle_material/bottle_0855.png",
+        "data/bottle_material/bottle_1080.png",
+        "data/bottle_material/bottle_1099.png",
+        "data/bottle_material/bottle_1155.png",
+        "data/bottle_material/bottle_0130.png",
+        "data/bottle_material/bottle_0060.png",
+        "data/bottle_material/bottle_0782.png",
+        "data/bottle_material/bottle_0013.png",
+        "data/bottle_material/bottle_0103.png",
+        "data/bottle_material/bottle_0106.png",
+        "data/bottle_material/bottle_0794.png",
+        "data/bottle_material/bottle_0028.png",
+        "data/bottle_material/bottle_1118.png",
+        "data/bottle_material/bottle_0027.png",
+        "data/bottle_material/bottle_1168.png",
+        "data/bottle_material/bottle_1127.png",
+        "data/bottle_material/bottle_0036.png",
+        "data/bottle_material/bottle_1157.png",
+        "data/bottle_material/bottle_0007.png",
+        "data/bottle_material/bottle_1133.png",
+        "data/bottle_material/bottle_1096.png",
+        "data/bottle_material/bottle_1088.png",
+        "data/bottle_material/bottle_1164.png",
+        "data/bottle_material/bottle_0198.png",
+        "data/bottle_material/bottle_1131.png",
+        "data/bottle_material/bottle_1077.png",
+        "data/bottle_material/bottle_0182.png",
+        "data/bottle_material/bottle_1153.png",
+        "data/bottle_material/bottle_0875.png",
+        "data/bottle_material/bottle_0089.png",
+        "data/bottle_material/bottle_0002.png"
+      ]
+    }
+  ]
+}

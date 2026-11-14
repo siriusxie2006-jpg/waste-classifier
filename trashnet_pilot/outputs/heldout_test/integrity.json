@@ -1,0 +1,10 @@
+{
+  "plan_sha256": "ac7a1e46ad1775b2f28133be5c1c5ea1aef97b6f33f4da0ae7a6bdf458bcee54",
+  "results_sha256": "0769279675c05f7b31c67433eb564f9e72328fc877acef42bcc255b0d090eff5",
+  "report_sha256": "1877eb16babe22b0ae820e2ecdf7797eb8c86f6a92932cd98ca9faf774e8d551",
+  "scored_unique_test_images": 380,
+  "model_condition_pairs": 168,
+  "audited_predictions": 63840,
+  "class_metric_rows": 1008,
+  "historical_training_artifacts_checked": 72
+}

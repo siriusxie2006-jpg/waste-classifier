@@ -1,0 +1,157 @@
+{
+  "split": "test",
+  "split_manifest_sha256": "dcb36e7e183a698c837aa682635ecc606d1a7c1ab360a776b1784e8226e2bf07",
+  "class_order": [
+    "cardboard",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "trash"
+  ],
+  "test_counts": {
+    "cardboard": 58,
+    "glass": 78,
+    "metal": 63,
+    "paper": 90,
+    "plastic": 72,
+    "trash": 19
+  },
+  "preflight_manifest_audit": {
+    "split_counts": {
+      "val": 375,
+      "train": 1766,
+      "test": 380
+    },
+    "recorded_similarity_groups_cross_splits": false,
+    "exact_pixel_duplicates_cross_splits": false,
+    "train_image_sizes": {
+      "512x384": 1766
+    },
+    "test_image_contents_opened": false,
+    "limitation": "Recorded groups cannot guarantee discovery of every near duplicate or physical object identity"
+  },
+  "validation_results_sha256": "ee841950a832044863d12ac0acf614e50545b2da6d3ecf7b536f008a91d97320",
+  "candidate": "coverage_control",
+  "selection_rule": "Candidate and epochs frozen from validation before holdout inference",
+  "weights": [
+    {
+      "run_name": "multiscale_pilot_control_seed42",
+      "group": "original_control",
+      "seed": 42,
+      "checkpoint_sha256": "0ba4dfaa117fa91af9b60dc976b72b53a4b1e88726cb923fc46eab859e6af933",
+      "best_epoch": 7
+    },
+    {
+      "run_name": "coverage_control_seed42",
+      "group": "coverage_control",
+      "seed": 42,
+      "checkpoint_sha256": "ede693f393c9876ea11431221a616f7c88997b473cd426898a978ddc1931cac9",
+      "best_epoch": 7
+    },
+    {
+      "run_name": "multiscale_pilot_fixed_seed42",
+      "group": "original_fixed",
+      "seed": 42,
+      "checkpoint_sha256": "777b2b8f604f5b4a18fa2fdbaf0095d498466a3217dbf40806c4beea64363438",
+      "best_epoch": 8
+    },
+    {
+      "run_name": "coverage_fixed_seed42",
+      "group": "coverage_fixed",
+      "seed": 42,
+      "checkpoint_sha256": "c4c8d2a461a4ef2577b3c41a42764a65232436c70bc7a522f239ca4b3ede96fb",
+      "best_epoch": 7
+    },
+    {
+      "run_name": "multiscale_confirm_control_seed43",
+      "group": "original_control",
+      "seed": 43,
+      "checkpoint_sha256": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b",
+      "best_epoch": 9
+    },
+    {
+      "run_name": "coverage_control_seed43",
+      "group": "coverage_control",
+      "seed": 43,
+      "checkpoint_sha256": "10aeab4ca56f42d53a93113efaa2a7b4d53af30e870b774ddf18dd38d2fb77c4",
+      "best_epoch": 8
+    },
+    {
+      "run_name": "multiscale_confirm_fixed_seed43",
+      "group": "original_fixed",
+      "seed": 43,
+      "checkpoint_sha256": "5b6af3a5a2b4fdf1483a56e736685adcc989590a4e893005f05d6980319553c1",
+      "best_epoch": 10
+    },
+    {
+      "run_name": "coverage_fixed_seed43",
+      "group": "coverage_fixed",
+      "seed": 43,
+      "checkpoint_sha256": "376a1bc87eb7a198900626f5bc0c2139a2c526523ea8b398cab561b0bcea2b89",
+      "best_epoch": 9
+    },
+    {
+      "run_name": "multiscale_confirm_control_seed44",
+      "group": "original_control",
+      "seed": 44,
+      "checkpoint_sha256": "d94cdf9a56ac796d72af1c3b704b3ebf9aea99aeb19d06a3678a27ccb0131653",
+      "best_epoch": 9
+    },
+    {
+      "run_name": "coverage_control_seed44",
+      "group": "coverage_control",
+      "seed": 44,
+      "checkpoint_sha256": "ef52f17bd6d6d039ef4fc8f6b3be476ecabf82b58b64fa8ec8ab2dc1751130fa",
+      "best_epoch": 9
+    },
+    {
+      "run_name": "multiscale_confirm_fixed_seed44",
+      "group": "original_fixed",
+      "seed": 44,
+      "checkpoint_sha256": "35aa0c2ac45306143896299558a9d5416e530ae4a9b88219c759e419374604b7",
+      "best_epoch": 10
+    },
+    {
+      "run_name": "coverage_fixed_seed44",
+      "group": "coverage_fixed",
+      "seed": 44,
+      "checkpoint_sha256": "63a1cb57d2188bdc92777b50b210ff73ae13e8ef2967d699cebc03192c693416",
+      "best_epoch": 10
+    }
+  ],
+  "batch_size": 32,
+  "geometry_conditions": [
+    "original_white",
+    "existing_mean_pad",
+    "shrink75_white",
+    "shrink75_mean",
+    "rotate90",
+    "rotate180"
+  ],
+  "light_blur_conditions": [
+    "brightness_0.7",
+    "brightness_0.4",
+    "brightness_0.2",
+    "blur_1",
+    "blur_2",
+    "blur_4",
+    "brightness_1.3",
+    "brightness_1.7"
+  ],
+  "geometry_metric": "Mean of six condition-specific six-class macro-F1 values including original input",
+  "light_blur_metric": "Mean of the brightness-family mean and blur-family mean",
+  "condition_preprocessing": "Full aspect-preserving white fit at 224, then the locked probe and ImageNet normalization",
+  "source_sha256": {
+    "evaluate_heldout_test.py": "0ab6bafb9200257c371a9f0d92f853544d7f285ca91dd327cd49f4cf69d1e9ea",
+    "train_baseline.py": "09b652812eb5ab86d2c762d345b11d8cfd8e94d83d913e173b33a380cafd9fb9",
+    "model_utils.py": "fd0e01cca68a7474d817b9936b185fddd2ba97556e12cca7429c8373d4419529",
+    "multiscale_model.py": "4205c36778e12fd5620a0f9e25c354d8c318c6c74c417fa14f216ca508991479",
+    "image_framing.py": "66e4fe0ef5bbcaab957c4b84a87a747dd94c6a3fcc444f1cc3b4503aa1fa6934",
+    "domain_probes.py": "3c1d33a232d350170742a9277df722782ae2ce94ded6a3005d84be0928d8cd1a",
+    "preview_robustness.py": "c8ce5503a58df3c6814e63f3fd4994a169766b8eb4be2a9fb5a1735b47d2a4ca",
+    "diagnose_domain_inputs.py": "c61cb77b1e9e0104e54a40189008712970a8efb4895096585429a9ad6e312811",
+    "external_metrics.py": "92409cd445edcc82348e7de5b32a385b407b64f89de6bfef347934b170011b1e",
+    "run_baseline_check.py": "31eadc787ad6b3152ac6bbc1a817d100a12820aab4b412950d0a8a8d00acde42"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "plan_sha256": "1a78f13d4e78029f18f2e3a9888e02ab9b17e4f1880a854c60f338edd61128f8",
+  "development_sha256": "06f52cb1e781f0c83c862c257fe71a1354cf6b8db324daf6cf8f7f68697e7406",
+  "candidate": "bottle_6_25",
+  "decisions": {
+    "bottle_3_125": {
+      "accepted_for_holdout": true,
+      "bottle_dev_change": 0.3630613535736875,
+      "bottle_dev_change_by_seed": [
+        0.42647058823529416,
+        0.3515180265654649,
+        0.31119544592030357
+      ],
+      "bottle_dev_change_over_in_domain": 0.3611638203668564,
+      "trashnet_val_f1_change": 0.002455213417793719
+    },
+    "bottle_6_25": {
+      "accepted_for_holdout": true,
+      "bottle_dev_change": 0.3738140417457306,
+      "bottle_dev_change_by_seed": [
+        0.44781783681214415,
+        0.383776091081594,
+        0.2898481973434536
+      ],
+      "bottle_dev_change_over_in_domain": 0.37191650853889946,
+      "trashnet_val_f1_change": -0.0009887889777913845
+    }
+  },
+  "weights": [
+    {
+      "seed": 42,
+      "recipe": "original",
+      "path": "outputs/multiscale_pilot_control_seed42/best_model.pt",
+      "sha256": "0ba4dfaa117fa91af9b60dc976b72b53a4b1e88726cb923fc46eab859e6af933"
+    },
+    {
+      "seed": 43,
+      "recipe": "original",
+      "path": "outputs/multiscale_confirm_control_seed43/best_model.pt",
+      "sha256": "baadbe9b9775e25d1ea9565cb881acd87985bdf0bd1bc9172a7938f84c99a07b"
+    },
+    {
+      "seed": 44,
+      "recipe": "original",
+      "path": "outputs/multiscale_confirm_control_seed44/best_model.pt",
+      "sha256": "d94cdf9a56ac796d72af1c3b704b3ebf9aea99aeb19d06a3678a27ccb0131653"
+    },
+    {
+      "seed": 42,
+      "recipe": "in_domain",
+      "path": "outputs/material_baseline/weights/in_domain_seed42.pt",
+      "sha256": "85a618cd6147bfdfd79b7d374168efff0e9f8403647a8c422bde1e8814389aaa"
+    },
+    {
+      "seed": 43,
+      "recipe": "in_domain",
+      "path": "outputs/material_baseline/weights/in_domain_seed43.pt",
+      "sha256": "05e4d18d38a746b4a658acd70bcb118731358a062aaf58de9e2484c1f7c15a66"
+    },
+    {
+      "seed": 44,
+      "recipe": "in_domain",
+      "path": "outputs/material_baseline/weights/in_domain_seed44.pt",
+      "sha256": "ea01cceaff57398a402894512d7054a7c2248b4ba8719c0a5bfe9ac297fd1647"
+    },
+    {
+      "seed": 42,
+      "recipe": "bottle_6_25",
+      "path": "outputs/material_baseline/bottle_replay/bottle_6_25_seed42.pt",
+      "sha256": "bf4af3296f7ba65799a23bf9c7b542434cf4453fb1a22ade5c43a7b0f4d75d35"
+    },
+    {
+      "seed": 43,
+      "recipe": "bottle_6_25",
+      "path": "outputs/material_baseline/bottle_replay/bottle_6_25_seed43.pt",
+      "sha256": "c02dcadd7dcc81f0be5553ca67944cb31c46899d3c3b35a64983f477404693c3"
+    },
+    {
+      "seed": 44,
+      "recipe": "bottle_6_25",
+      "path": "outputs/material_baseline/bottle_replay/bottle_6_25_seed44.pt",
+      "sha256": "a76c2cbde932f277a30d321aa5cc02d7f075895c84bbe73c3f0a20e7efca90f8"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "best_epoch": 8,
+  "epochs_completed": 10,
+  "validation_accuracy": 0.9253333333333333,
+  "validation_macro_f1": 0.9184436820726916,
+  "total_training_validation_seconds": 57.82485679999991,
+  "test_evaluated": false,
+  "plan_sha256": "57c3c88c71cd4f3491254bb5698c6ea2d573e82eabc8ff1570a464f95ee98728"
+}

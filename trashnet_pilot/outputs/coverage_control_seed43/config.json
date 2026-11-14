@@ -1,0 +1,61 @@
+{
+  "warmup_epochs": 3,
+  "finetune_epochs": 7,
+  "batch_size": 32,
+  "workers": 2,
+  "augmentation": "both",
+  "class_weighting": "inverse",
+  "framing": "fit",
+  "head": "linear",
+  "head_lr": 0.001,
+  "backbone_lr": 0.0001,
+  "weight_decay": 0.0001,
+  "finetune_scope": "layer3_layer4",
+  "recipe": "control",
+  "seed": 43,
+  "reference": "multiscale_confirm_control_seed43",
+  "run_name": "coverage_control_seed43",
+  "architecture": "resnet18",
+  "geometry_policy": {
+    "canvas_colors": [
+      [
+        255,
+        255,
+        255
+      ],
+      [
+        124,
+        116,
+        104
+      ]
+    ],
+    "rotation_probability": 0.5,
+    "rotation_degrees": [
+      90,
+      180,
+      270
+    ],
+    "shrink_probability": 0.5,
+    "scale_range": [
+      0.75,
+      1.0
+    ]
+  },
+  "split_manifest_sha256": "dcb36e7e183a698c837aa682635ecc606d1a7c1ab360a776b1784e8226e2bf07",
+  "plan_sha256": "57c3c88c71cd4f3491254bb5698c6ea2d573e82eabc8ff1570a464f95ee98728",
+  "selection_metric": "validation macro-F1",
+  "test_evaluated": false,
+  "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "class_weights": [
+    1.0511904954910278,
+    0.853140115737915,
+    1.007990837097168,
+    0.7126715183258057,
+    0.865686297416687,
+    3.065972328186035
+  ]
+}
