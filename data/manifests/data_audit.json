@@ -1,0 +1,61 @@
+﻿{
+    "source_images":  2521,
+    "total_images":  2521,
+    "classes":  [
+                    "cardboard",
+                    "glass",
+                    "metal",
+                    "paper",
+                    "plastic",
+                    "trash"
+                ],
+    "counts":  {
+                   "train":  {
+                                 "cardboard":  280,
+                                 "glass":  345,
+                                 "metal":  292,
+                                 "paper":  413,
+                                 "plastic":  340,
+                                 "trash":  96
+                             },
+                   "val":  {
+                               "cardboard":  65,
+                               "glass":  75,
+                               "metal":  54,
+                               "paper":  91,
+                               "plastic":  68,
+                               "trash":  22
+                           },
+                   "test":  {
+                                "cardboard":  58,
+                                "glass":  78,
+                                "metal":  63,
+                                "paper":  90,
+                                "plastic":  72,
+                                "trash":  19
+                            }
+               },
+    "excluded_conflicting_labels":  [
+
+                                    ],
+    "exclusion_rule":  "Exclude all copies of RGB-pixel-identical images with conflicting folder labels; no labels are adjudicated.",
+    "split_seed":  42,
+    "selected_balance_seed":  55,
+    "candidate_seed_count":  300,
+    "phash_hamming_threshold":  6,
+    "exact_duplicate_pairs":  0,
+    "perceptual_candidate_pairs":  43,
+    "group_count":  2478,
+    "cross_split_group_count":  0,
+    "largest_group":  4,
+    "grouping_rule":  "After excluding pixel-identical label conflicts, connected components join identical RGB pixels or 63-bit pHash distance \u003c=6.",
+    "selection_rule":  "Choose the lowest class-distribution squared-error score across 300 GroupShuffleSplit candidates; no model scores are used.",
+    "original_trashnet_images":  2527,
+    "clean_v1_excluded_count":  6,
+    "clean_v1_excluded_manifest":  "data/manifests/excluded_files.csv",
+    "source_manifest_ref":  "damnshi/local-baseline",
+    "source_manifest_sha":  "cd2242fc22eebc8862b237f2de79e2af0cee5b35",
+    "clean_v1_sha256_rows_verified":  2521,
+    "source_archive_sha256":  "0bf472790f8b20e5c950d5b5012a9d38af0d3392efd65f8ce171334fc16b07c2",
+    "cross_split_pixel_hash_count":  0
+}

@@ -1,0 +1,7 @@
+﻿class,original_count,excluded_count,clean_count,train_count,validation_count,test_count
+cardboard,403,0,403,282,60,61
+glass,501,3,498,348,75,75
+metal,410,1,409,286,61,62
+paper,594,0,594,416,89,89
+plastic,482,2,480,336,72,72
+trash,137,0,137,96,21,20

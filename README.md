@@ -46,7 +46,7 @@ waste-classifier/
 
 ## 📊 Dataset
 
-Menggunakan [TrashNet](https://github.com/garythung/trashnet), berisi 2,527 gambar sampah dalam 6 kategori:
+Menggunakan [TrashNet](https://github.com/garythung/trashnet). Clean V1 mempertahankan 2,521 dari 2,527 gambar asli pada enam kategori; enam file dengan konflik label pada tiga pasang gambar duplikat dikecualikan tanpa menebak label.
 
 | Kelas | Deskripsi |
 |---|---|
@@ -57,7 +57,7 @@ Menggunakan [TrashNet](https://github.com/garythung/trashnet), berisi 2,527 gamb
 | `plastic` | Botol plastik, kemasan |
 | `trash` | Sampah campuran/tidak terklasifikasi |
 
-Dataset di-split secara **stratified** menjadi train (70%) / validation (15%) / test (15%), memastikan proporsi kelas konsisten di setiap split.
+Dataset menggunakan **Grouped Split**: gambar yang identik pada piksel atau memiliki pHash Hamming Distance ≤ 6 disatukan dengan Connected Components, lalu GroupShuffleSplit memilih pembagian terdekat dengan 70% / 15% / 15%. Algoritma mencoba 300 kandidat dari seed 42; balance seed yang dipilih adalah 55. Semua anggota satu Group tetap pada split yang sama. Lihat [DATASET_README.md](DATASET_README.md), [split manifest](data/manifests/split_manifest.csv), dan [data audit](data/manifests/data_audit.json) untuk detail.
 
 ## 🧠 Metodologi
 
@@ -102,13 +102,12 @@ source venv-wasteclassifier/bin/activate  # Windows: venv-wasteclassifier\Script
 pip install -r requirements.txt
 ```
 
-### 2. Download Dataset
-```bash
-kaggle datasets download -d feyzazkefe/trashnet
-# Ekstrak ke data/raw/
-```
+### 2. Dataset
+Clean V1 dan split tetapnya sudah tersedia di `data/train`, `data/val`, `data/test`. Gunakan split dan manifest yang disediakan untuk membandingkan eksperimen; jangan mengambil versi dataset berbeda atau mengacak ulang keanggotaan.
 
 ### 3. Preprocessing & Split Dataset
+Split Grouped V1 dan manifest tetap sudah disediakan. `src/data_split.py` hanya akan memvalidasi split yang ada dan berhenti jika input atau output tidak cocok. Untuk membangunnya kembali, tempatkan salinan Clean V1 yang sama di `data/raw/` terlebih dahulu.
+
 ```bash
 python src/data_split.py
 ```

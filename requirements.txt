@@ -13,4 +13,5 @@ Pillow
 numpy
 opencv-python-headless
 scikit-learn
+scipy
 seaborn
