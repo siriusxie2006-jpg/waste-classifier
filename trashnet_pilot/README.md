@@ -15,15 +15,20 @@
 
 本目录演示默认权重的历史结果为 375 张验证图准确率 93.33%、Macro-F1 0.9257，380 张测试图准确率 89.74%、Macro-F1 0.8704。瓶类微调权重在 28 张 TACO 保留瓶子裁图上准确率为 64.29%，同种子基础版为 25.00%。两项测试覆盖的数据不同。 [TrashNet 测试报告](HELDOUT_TEST_RESULTS.md) · [瓶类微调报告](BASELINE_MATERIAL_RESULTS.md)
 
-## 重新训练并运行演示
+## 直接运行演示
 
-先安装与你的运行环境匹配的 PyTorch 和 Torchvision，再从仓库根目录运行下方命令。数据准备脚本会下载和校验 TrashNet 原始缩小版，并核对本目录固定划分。首次训练还会获取 ImageNet 权重。
+分支包含演示用的三份训练权重。安装与你的环境匹配的 PyTorch 和 Torchvision，再从仓库根目录运行以下命令。数据准备脚本会校验并复制仓库根目录的 2,521 张 TrashNet 图，供本目录按自己的固定清单使用。
 
 ```sh
 python -m pip install -r trashnet_pilot/requirements-demo.txt
-python trashnet_pilot/prepare_data.py
-python trashnet_pilot/train_baseline.py --run-name multiscale_confirm_control_seed43 --seed 43 --framing fit --augmentation both --finetune-scope layer3_layer4 --class-weighting inverse
+python trashnet_pilot/prepare_shared_images.py
 python -m streamlit run trashnet_pilot/demo_app.py --server.address 127.0.0.1
 ```
 
-本分支包含代码、清单、训练配置和历史评估输出。已有权重单独保存。上面命令会用相同设置重训通用基础模型，结果可能随硬件和依赖版本有波动。要打开整图增强或瓶类微调选项，需要取得各自的训练权重，放到对应的 `outputs/<运行名>/best_model.pt`。历史多种子评估及瓶类适配脚本还依赖额外运行和数据，请按各实验报告中的配置及数据来源复现。 [演示操作](DEMO_GUIDE.md) · [原始项目来源与融合](MERGE_GUIDE.md)
+模型设置里可以切换基础 ResNet18、整图增强和瓶类微调。要重训通用基础版，请使用新的运行名以保留上面的已训权重。首次重训会获取 ImageNet 权重。
+
+```sh
+python trashnet_pilot/train_baseline.py --run-name local_baseline_retrain_seed43 --seed 43 --framing fit --augmentation both --finetune-scope layer3_layer4 --class-weighting inverse
+```
+
+历史多种子评估及瓶类适配脚本还需要额外运行的权重，以及 TACO 或 RealWaste 数据。数据来源和用途见相应实验报告。 [演示操作](DEMO_GUIDE.md) · [原始项目来源与融合](MERGE_GUIDE.md)

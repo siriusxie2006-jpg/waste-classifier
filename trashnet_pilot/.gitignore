@@ -8,6 +8,9 @@
 /outputs/**/*.pth
 /outputs/**/*.onnx
 /outputs/**/*.safetensors
+!/outputs/multiscale_confirm_control_seed43/best_model.pt
+!/outputs/coverage_control_seed43/best_model.pt
+!/outputs/bottle_6_25_seed43/best_model.pt
 /outputs/user_photo_diagnostics/
 /outputs/similarity_candidates.png
 /outputs/training_samples.png
