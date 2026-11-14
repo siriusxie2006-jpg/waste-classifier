@@ -1,0 +1,7 @@
+﻿relative_path,class,duplicate_group,duplicate_with,reason,sha256,size_bytes
+glass/glass115.jpg,glass,1,metal/metal91.jpg,Exact duplicate bytes with a conflicting class-folder label; excluded as requested; correct label not adjudicated,81546D1362D75FC60718E5852593C58F66F813E8C1E9D1EAE6871FEDB02E2868,8672
+metal/metal91.jpg,metal,1,glass/glass115.jpg,Exact duplicate bytes with a conflicting class-folder label; excluded as requested; correct label not adjudicated,81546D1362D75FC60718E5852593C58F66F813E8C1E9D1EAE6871FEDB02E2868,8672
+glass/glass176.jpg,glass,2,plastic/plastic152.jpg,Exact duplicate bytes with a conflicting class-folder label; excluded as requested; correct label not adjudicated,C41B99AEC8A3257C8668A2144EBBAF8042018F0A85D88E22BF4E413B43693DD8,16192
+plastic/plastic152.jpg,plastic,2,glass/glass176.jpg,Exact duplicate bytes with a conflicting class-folder label; excluded as requested; correct label not adjudicated,C41B99AEC8A3257C8668A2144EBBAF8042018F0A85D88E22BF4E413B43693DD8,16192
+glass/glass389.jpg,glass,3,plastic/plastic332.jpg,Exact duplicate bytes with a conflicting class-folder label; excluded as requested; correct label not adjudicated,E971F4F8F50E960E454EA724CEC922FC2988BBF4027AA48B553E139BB5890968,15420
+plastic/plastic332.jpg,plastic,3,glass/glass389.jpg,Exact duplicate bytes with a conflicting class-folder label; excluded as requested; correct label not adjudicated,E971F4F8F50E960E454EA724CEC922FC2988BBF4027AA48B553E139BB5890968,15420

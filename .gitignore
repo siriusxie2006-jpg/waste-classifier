@@ -96,3 +96,10 @@ wandb/
 # ==========================
 # notebooks/*.png
 # notebooks/classification_report.txt
+# Track the fixed TrashNet Clean V1 split used by the baseline.
+!data/train/
+!data/train/**
+!data/val/
+!data/val/**
+!data/test/
+!data/test/**
