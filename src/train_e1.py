@@ -1,4 +1,4 @@
-"""Compare class weights with a matched unweighted continuation on validation."""
+"""Compare class weighting or focal loss with a matched CE continuation."""
 import argparse
 import copy
 import csv
@@ -21,6 +21,22 @@ CLASSES = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 BETA = .995
 BATCH_SIZE = 32
 LEARNING_RATE = .001
+
+
+class FocalLoss(nn.Module):
+    """Multiclass focal loss without an extra class weight."""
+
+    def __init__(self, gamma):
+        super().__init__()
+        self.gamma = gamma
+
+    def forward(self, logits, target):
+        ce = nn.functional.cross_entropy(logits, target, reduction='none')
+        # CE is -log(p_t). expm1 preserves precision when p_t is near one.
+        difficulty = -torch.expm1(-ce)
+        # At an exactly zero loss, avoid a singular derivative for gamma < 1.
+        difficulty = difficulty.clamp_min(torch.finfo(ce.dtype).tiny)
+        return (difficulty.pow(self.gamma) * ce).mean()
 
 
 def file_hash(path):
@@ -114,19 +130,29 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--epochs', type=int, default=10)
-    parser.add_argument('--trash-multipliers', type=float, nargs='+', default=(),
-                        help='Compare ordinary CE to these Trash weights with all other classes equal.')
+    schemes = parser.add_mutually_exclusive_group()
+    schemes.add_argument('--trash-multipliers', type=float, nargs='+', default=(),
+                         help='Compare ordinary CE to these Trash weights with all other classes equal.')
+    schemes.add_argument('--focal-gammas', type=float, nargs='+', default=(),
+                         help='Compare ordinary CE to unweighted focal loss at these gamma values.')
     args = parser.parse_args()
     if args.epochs < 1:
         parser.error('--epochs must be positive')
     if any(not math.isfinite(value) or value <= 1 for value in args.trash_multipliers):
         parser.error('--trash-multipliers must be finite and greater than 1')
+    if any(not math.isfinite(value) or value <= 0 for value in args.focal_gammas):
+        parser.error('--focal-gammas must be finite and positive')
 
     set_reproducibility(args.seed)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     loaders, manifest_hash = load_data(args.seed)
     backbone, initial_head = load_model(args.checkpoint, device)
     counts, weights = class_weights(loaders['train'].dataset, device, args.trash_multipliers)
+    focal_gammas = {f'focal_{gamma}': gamma for gamma in args.focal_gammas}
+    if focal_gammas:
+        weights = {'ce': weights['ce']}
+    criteria = {name: nn.CrossEntropyLoss(weight=value) for name, value in weights.items()}
+    criteria.update({name: FocalLoss(gamma) for name, gamma in focal_gammas.items()})
     args.output.mkdir(parents=True, exist_ok=False)
 
     settings = dict(checkpoint_sha256=file_hash(args.checkpoint), manifest_sha256=manifest_hash,
@@ -135,10 +161,12 @@ def main():
                     weights={name: dict(zip(CLASSES, value.tolist())) for name, value in weights.items()},
                     checkpoint_selection='highest validation accuracy, earliest on tie',
                     device=device, torch_version=str(torch.__version__))
+    if focal_gammas:
+        settings['focal_gammas'] = focal_gammas
+        settings['focal_class_weight'] = 1
     (args.output / 'config.json').write_text(json.dumps(settings, indent=2), encoding='utf-8')
 
-    heads = {name: copy.deepcopy(initial_head) for name in weights}
-    criteria = {name: nn.CrossEntropyLoss(weight=value) for name, value in weights.items()}
+    heads = {name: copy.deepcopy(initial_head) for name in criteria}
     optimizers = {name: torch.optim.Adam(head.parameters(), lr=LEARNING_RATE) for name, head in heads.items()}
     val = frozen_batches(backbone, loaders['val'], device)
     baseline, baseline_pred = evaluate(initial_head, val)
