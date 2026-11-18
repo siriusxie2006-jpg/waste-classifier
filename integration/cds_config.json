@@ -1,0 +1,21 @@
+﻿{
+    "method":  "Confusion-Directed Squeeze (CDS)",
+    "loss":  "CrossEntropy + lambda_cds * CDS",
+    "lambda_cds":  0.17614097189991385,
+    "theta":  0.3,
+    "rho0":  0.1,
+    "feature":  "model.fc[1], ReLU output before Dropout; normalized inside CDS",
+    "center_init":  "E0 Train normalized embeddings only; raw EMA means, prototypes normalized for geometry",
+    "stop_gradient":  {
+                          "ema_centers":  true,
+                          "normalized_prototypes":  true,
+                          "confuser_argmax":  true,
+                          "pair_direction_u":  true,
+                          "distance_d":  true,
+                          "confidence_weights_p_b":  true,
+                          "normalizer_Z":  true,
+                          "embedding_z":  false
+                      },
+    "source_sha256":  "86490ccb8b5c86eb86ab894ca46db50e97e5210ce20100c1b485cae1695cac9a",
+    "source_run":  "E2 formal five-seed experiment, 2026-11-18"
+}
