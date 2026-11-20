@@ -1,12 +1,16 @@
-"""Loss assembly adapters; intentionally no optimizer, loop, or formal runner."""
+"""Loss assembly adapters shared by independent CDS and combined E3 training."""
 from __future__ import annotations
 
 import torch
 from torch import nn
 from torch.nn import functional as F
 
-from cds_loss import ConfusionDirectedSqueezeLoss
-from d1_cosine import CosineSoftmax
+if __package__:
+    from .cds_loss import ConfusionDirectedSqueezeLoss
+    from .d1_cosine import CosineSoftmax
+else:
+    from cds_loss import ConfusionDirectedSqueezeLoss
+    from d1_cosine import CosineSoftmax
 
 
 class D1Branch(nn.Module):
@@ -31,19 +35,23 @@ class D1Branch(nn.Module):
 
 
 class CDSBranch(nn.Module):
-    """CE + lambda_CDS * corrected CDS. Lambda is required, never guessed."""
-    def __init__(self, theta: float = 0.30, rho0: float = 0.10):
+    """Classification loss plus CDS; defaults to the original CE objective."""
+    def __init__(self, theta: float = 0.30, rho0: float = 0.10,
+                 classification_loss: nn.Module | None = None):
         super().__init__()
         self.loss = ConfusionDirectedSqueezeLoss(theta=theta, rho0=rho0)
+        self.classification_loss = (classification_loss if classification_loss is not None
+                                    else nn.CrossEntropyLoss())
 
     def forward(self, embedding: torch.Tensor, logits: torch.Tensor,
                 labels: torch.Tensor, lambda_cds: float | None):
         if lambda_cds is None or not torch.isfinite(torch.tensor(float(lambda_cds))) or lambda_cds < 0:
             raise ValueError("A reviewed finite lambda_cds is required before combining losses")
         ce = F.cross_entropy(logits, labels)
+        classification = self.classification_loss(logits, labels)
         cds = self.loss(embedding, labels, logits)
-        return {'logits': logits, 'ce': ce, 'cds': cds,
-                'total': ce + float(lambda_cds) * cds}
+        return {'logits': logits, 'ce': ce, 'classification': classification, 'cds': cds,
+                'total': classification + float(lambda_cds) * cds}
 
     @torch.no_grad()
     def update_centers_after_batch(self, embedding: torch.Tensor,

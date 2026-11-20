@@ -12,6 +12,8 @@ Centers store raw EMA means of normalized embeddings. A batch with `n_k` example
 
 `integration/cds_loss.py` implements the loss and EMA centers. `integration/e0_branches.py` adapts the frozen E0 model, and `integration/training_branches.py` composes the CDS branch with CE. `integration/cds_config.json` records the frozen formal parameters and provenance. A1/A4/D1 historical source files are not replaced by these adapters.
 
+The adapter also accepts a classification loss such as Focal Loss. The matched CE, E1, E2 and E3 training entry point is `src/train_e3.py`. See [E3 integration and commands](E3_INTEGRATION.md) for gradient flow, center updates and checkpoint compatibility.
+
 The loss consumes Train embeddings for center initialization and training. Validation is used for metrics only. Test data is not required by this implementation and was not used in the formal runs.
 
 ## Validation
@@ -19,7 +21,7 @@ The loss consumes Train embeddings for center initialization and training. Valid
 Run the isolated mathematical and engineering tests with the project Python environment:
 
 ```powershell
-python -m pytest tests/test_cds_math.py tests/test_cds_engineering.py
+python -m unittest discover -s tests -v
 ```
 
 The source copies are verified against the final engineering manifest; the CDS loss SHA above matches the formal-run source manifest.

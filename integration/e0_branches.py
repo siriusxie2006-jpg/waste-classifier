@@ -13,16 +13,23 @@ class E0Branches(nn.Module):
         self.model = models.resnet18(weights=None)
         self.model.fc = nn.Sequential(nn.Linear(512, 256), nn.ReLU(inplace=True),
                                       nn.Dropout(0.4), nn.Linear(256, 6))
+        for name, p in self.model.named_parameters():
+            p.requires_grad_(name.startswith("fc."))
+        self.train(False)
 
     def load_e0_state(self, state: dict[str, torch.Tensor]) -> None:
         self.model.load_state_dict(state, strict=True)
         for name, p in self.model.named_parameters():
             p.requires_grad_(name.startswith("fc."))
 
-    def set_mode(self, training: bool) -> None:
-        self.model.train(training)
+    def train(self, mode: bool = True):
+        super().train(mode)
         for name, child in self.model.named_children():
-            child.train(training if name == "fc" else False)
+            child.train(mode if name == "fc" else False)
+        return self
+
+    def set_mode(self, training: bool) -> None:
+        self.train(training)
 
     def forward_with_embedding(self, images: torch.Tensor):
         m = self.model
