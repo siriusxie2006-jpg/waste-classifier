@@ -1,0 +1,85 @@
+{
+  "project": "DS4023 Robust Waste Classification Under Image Degradation — E4",
+  "created": "2026-11-21",
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "interpreter": "C:\\Users\\Administrator\\AppData\\Local\\venvs\\e3-windows\\Scripts\\python.exe"
+  },
+  "data": {
+    "root": "D:\\ml_project\\third_party\\waste-classifier\\data",
+    "split_manifest": "manifests/split_manifest.csv",
+    "split_manifest_sha256": "fa928903c389e66bba75fa1d2de91083170254b1fab4eebf56b217defe104851",
+    "split": "Grouped Split V1",
+    "counts": {"train": 1766, "val": 375, "test": 380},
+    "class_order": ["cardboard", "glass", "metal", "paper", "plastic", "trash"],
+    "class_counts": {
+      "train": {"cardboard": 280, "glass": 345, "metal": 292, "paper": 413, "plastic": 340, "trash": 96},
+      "val": {"cardboard": 65, "glass": 75, "metal": 54, "paper": 91, "plastic": 68, "trash": 22},
+      "test": {"cardboard": 58, "glass": 78, "metal": 63, "paper": 90, "plastic": 72, "trash": 19}
+    },
+    "test_policy": "Test opened exactly once, after all configurations were frozen."
+  },
+  "e0_reference": {
+    "checkpoint": "D:\\ml_project\\E0_GROUPED_BASELINE\\models\\resnet18_frozen_best.pth",
+    "checkpoint_sha256": "6e67965a4c0b43a5706e8d11dde226322342ee982e62a5a5c7a4e6f25603e7d0",
+    "architecture": "ResNet18 (ImageNet) frozen backbone + head 512->256->ReLU->Dropout(0.4)->6",
+    "val": {"accuracy": 0.8320, "macro_f1": 0.8030, "weighted_f1": 0.8301, "n_correct": 312, "n": 375},
+    "test": {"accuracy": 0.8105, "macro_f1": 0.7690, "weighted_f1": 0.8063, "n_correct": 308, "n": 380}
+  },
+  "e4_1": {
+    "features_256d": ["E2_FEATURE_DISTANCE_AUDIT/FEATURES_TRAIN.csv", "E2_FEATURE_DISTANCE_AUDIT/FEATURES_VALIDATION.csv"],
+    "features_512d": ["E2_FORMAL_PHASE1/A6_FEATURES_TRAIN.csv", "E2_FORMAL_PHASE1/A6_FEATURES_VALIDATION.csv"],
+    "classifiers": ["logreg", "linear_svm", "rbf_svm", "knn_euclid", "knn_cosine", "lda_shrinkage", "nearest_centroid"],
+    "selection": "5-fold stratified CV inside Train (random_state=42) to pick hyper-parameters; refit on full Train; Validation predicted once",
+    "selected_by_val_macro_f1": {"feature_space": "512D", "classifier": "rbf_svm", "params": {"C": 10.0, "gamma": "scale"},
+      "val_accuracy": 0.8827, "val_macro_f1": 0.8676, "n_correct": 331, "mcnemar_p_vs_e0": 0.0094}
+  },
+  "e4_2": {
+    "starting_checkpoint": "E0 (same as e0_reference)",
+    "batch_size": 32,
+    "epochs": 10,
+    "optimizer": "Adam",
+    "lr_backbone": 0.0001,
+    "lr_head": 0.001,
+    "bn": "always eval; affine params and running stats frozen",
+    "loss": "cross entropy (no auxiliary loss, no class weights)",
+    "augmentation": "E0 train_transform: Resize(224,224), RandomHorizontalFlip(0.5), RandomRotation(15), ColorJitter(0.2,0.2,0.2,0.1)",
+    "arms": {
+      "A_layer4": {"trainable_backbone_params": 8388608, "trainable_head_params": 132870},
+      "B_layer3_4": {"trainable_backbone_params": 10485760, "trainable_head_params": 132870}
+    },
+    "chosen": "A_layer4",
+    "val_5seed": {"accuracy_mean": 0.8837, "accuracy_std": 0.0173, "macro_f1_mean": 0.8645, "macro_f1_std": 0.0226,
+                  "weighted_f1_mean": 0.8826, "weighted_f1_std": 0.0173, "trash_f1_mean": 0.7307, "trash_f1_std": 0.0854}
+  },
+  "e4_3": {
+    "variants": {"resize": "Resize((224,224))", "pad": "aspect-preserving resize into 224x224 + pad with ImageNet mean colour"},
+    "result": "pad worse by 2.04 pp (seed42) and 3.40 pp (seed43) Validation Macro-F1; kept resize"
+  },
+  "e4_4": {
+    "variants": ["single", "5-model probability average", "hflip TTA", "5-model average + hflip TTA"],
+    "selected": "ens5_resize_hflip",
+    "val": {"accuracy": 0.9120, "macro_f1": 0.9015, "n_correct": 342, "n": 375},
+    "mean_pairwise_agreement": 0.9085
+  },
+  "final_deployment": {
+    "name": "ens5_resize_hflip",
+    "components": "5 x (ResNet18, layer4+head fine-tuned, 10 epochs, resize) probability average, with horizontal-flip TTA",
+    "inference_cost": "10 forward passes",
+    "val": {"accuracy": 0.9120, "macro_f1": 0.9015, "weighted_f1": null},
+    "test": {"accuracy": 0.8816, "macro_f1": 0.8560, "weighted_f1": 0.8803, "n_correct": 335, "n": 380,
+             "mcnemar_vs_e0": {"b": 8, "c": 35, "p_value": 4.19e-05}}
+  },
+  "constraints_honoured": {
+    "test_not_used_for_selection": true,
+    "no_new_architecture": true,
+    "no_auxiliary_loss": true,
+    "no_class_weights": true,
+    "e0_to_e3_artifacts_untouched": true,
+    "each_stage_separate_directory": true,
+    "sha256_manifest": "E4_FINAL/SHA256SUMS.txt"
+  }
+}
