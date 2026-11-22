@@ -1,0 +1,23 @@
+# Keep the frozen E4 GitHub archive source- and documentation-focused.
+# Checkpoints, raw data, run traces, and test predictions stay outside Git.
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.npz
+*.npy
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+runs/
+logs/
+data/
+results/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.*
