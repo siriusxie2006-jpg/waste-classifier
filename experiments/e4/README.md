@@ -41,8 +41,9 @@ Correctly classified test samples: **308/380 → 335/380**. Final ensemble Valid
 - [Experiment configuration](E4_EXPERIMENT_CONFIG.json)
 - [Audit status and limitations](FINAL_STATUS_RECONCILIATION.md)
 - [Original report (historical; contains known §6/§8 metric-label inconsistencies)](E4_FINAL_REPORT_ORIGINAL.md)
+- [Reconciled report derived from the uploaded original](E4_FINAL_REPORT_RECONCILED.md)
 
-**For formal submission, use the local `D:\ml_project\E4_AUDIT\E4_FINAL_REPORT_CORRECTED.md`**, which was identified by the audit as the corrected report. The corrected source file has not been uploaded here.
+**For formal course submission, prefer the audited local `D:\ml_project\E4_AUDIT\E4_FINAL_REPORT_CORRECTED.md`.** The reconciled GitHub version was prepared from the original report and audit-status evidence; it is **not identical by provenance** to that local audited file.
 
 **Actual training/inference source code and the five checkpoint `.pth` files are not part of this GitHub directory yet.** They remain in the frozen local `D:\ml_project\E4_FINAL\code\` and `runs\e4_2\layer4_resize_seed{42..46}\` folders. Do **not** treat this documentation-only archive as a runnable reproduction.
 
