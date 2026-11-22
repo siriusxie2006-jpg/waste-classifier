@@ -45,7 +45,27 @@ Correctly classified test samples: **308/380 → 335/380**. Final ensemble Valid
 
 **For formal course submission, prefer the audited local `D:\ml_project\E4_AUDIT\E4_FINAL_REPORT_CORRECTED.md`.** The reconciled GitHub version was prepared from the original report and audit-status evidence; it is **not identical by provenance** to that local audited file.
 
-**Actual training/inference source code and the five checkpoint `.pth` files are not part of this GitHub directory yet.** They remain in the frozen local `D:\ml_project\E4_FINAL\code\` and `runs\e4_2\layer4_resize_seed{42..46}\` folders. Do **not** treat this documentation-only archive as a runnable reproduction.
+**The exact nine original Python source files are archived in [code/](code/).** Each source file was verified against the frozen `SHA256SUMS.txt` manifest and rechecked after upload to GitHub (9/9 matched). These files were copied unchanged, including their original local path configuration.
+
+The five `.pth` checkpoints and the dataset are **not included** in GitHub. Reproduction still requires the original E0 checkpoint, frozen Grouped Split V1 dataset and manifest, and E2 feature CSVs. This is an authenticated source-code archive, **not a self-contained runnable reproduction**.
+
+## Archived source and execution boundaries
+
+| Script | Role |
+|---|---|
+| [e4_common.py](code/e4_common.py) | Shared dataset, ResNet18 architecture, transforms, metrics, BatchNorm freeze |
+| [e0_val_predictions.py](code/e0_val_predictions.py) | E0 validation reference |
+| [e4_1_classifiers.py](code/e4_1_classifiers.py) | Frozen-feature classifier comparisons |
+| [e4_2_finetune.py](code/e4_2_finetune.py) | Layer4 / Layer3+4 fine-tuning and padding comparison |
+| [e4_4_ensemble_tta.py](code/e4_4_ensemble_tta.py) | Validation ensemble and hflip TTA |
+| [e4_final_test.py](code/e4_final_test.py) | Historical guarded final Test evaluator — **do not rerun** |
+| [aggregate_e4_2.py](code/aggregate_e4_2.py) | Aggregate E4-2 and E4-3 records |
+| [assemble_tables.py](code/assemble_tables.py) | Assemble deliverable metric tables |
+| [plot_curves.py](code/plot_curves.py) | Render training curves |
+
+Source was produced with Python 3.12.10, PyTorch 2.11.0+cu128 and torchvision 0.26.0+cu128. The code also imports NumPy, Pillow, and scikit-learn. `e4_common.py` intentionally retains the original Windows `D:\ml_project` paths, so the archive cannot run as-is outside the original project directory.
+
+**Do not run `e4_final_test.py` again or override its `--force` guard.** Do not retrain or overwrite the frozen E4 results.
 
 ## Preserved limitations
 
