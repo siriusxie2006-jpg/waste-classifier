@@ -143,3 +143,8 @@ MIT License — bebas digunakan untuk pembelajaran dan pengembangan lebih lanjut
 ## 🙋 Tentang Project Ini
 
 Project ini dibangun sebagai bagian dari proses belajar deep learning secara terstruktur (dari CNN dasar hingga transfer learning dan deployment), sekaligus sebagai portofolio yang menunjukkan pemahaman end-to-end machine learning workflow: data preparation, model development, evaluation, dan (rencana) production deployment.
+
+
+## DS4023 E4 — Frozen Final Method (2026-11-22)
+
+The course-project E4 frozen method and audited results are documented in [experiments/e4/README.md](experiments/e4/README.md). Final model: ResNet18 Layer4 fine-tuning + five-seed ensemble + horizontal-flip TTA. Final Grouped Split V1 Test: **88.16% Accuracy**, **85.60% Macro-F1**. The earlier baseline figures above refer to the original upstream project rather than this final course experiment.
